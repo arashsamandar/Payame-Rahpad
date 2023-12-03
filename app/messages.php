@@ -12,4 +12,5 @@ class messages extends Model
     public function contents() {
         return $this->belongsTo('App\Content','content_id','id');
     }
+    // ok then here goes some change to codes :)
 }

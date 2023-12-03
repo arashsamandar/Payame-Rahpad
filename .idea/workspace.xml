@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0dbd0e0-3a99-4867-a59b-7543e5b75998" name="Default" comment="" />
+    <list default="true" id="b0dbd0e0-3a99-4867-a59b-7543e5b75998" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/app/messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/messages.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +38,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpDebugGeneral" xdebug_debug_port="9001" listening_started="true" />
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpDebugGeneral" xdebug_debug_port="9001" listening_started="true">
+    <xdebug_debug_ports port="9001" />
+    <xdebug_debug_ports port="9003" />
+  </component>
   <component name="PhpServers">
     <servers>
       <server host="localhost" id="84e0f3dd-d24e-43e1-b384-dfcc18178732" name="Unnamed" port="8000" />
@@ -133,17 +144,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="app&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/Layouts/app.blade.php&#10;app.blade.&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/Layouts/defalultapp.blade.php&#10;PageMana&#9;FILE&#9;file://E:/Laravel_Projects/pr/app/Http/Controllers/PageManager.php&#10;web.php&#9;FILE&#9;file://E:/Laravel_Projects/pr/routes/web.php&#10;Han&#9;FILE&#9;file://E:/Laravel_Projects/pr/app/Exceptions/Handler.php&#10;header&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/Layouts/header.blade.php&#10;updere&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/Layouts/UpdeRegis.blade.php&#10;verify&#9;null&#9;null&#10;header.&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/Layouts/header.blade.php&#10;upde&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/Layouts/UpdeRegis.blade.php&#10;logincontro&#9;FILE&#9;file://E:/Laravel_Projects/pr/app/Http/Controllers/Auth/LoginController.php&#10;page&#9;FILE&#9;file://E:/Laravel_Projects/pr/app/Http/Controllers/PageManager.php&#10;Handle&#9;FILE&#9;file://E:/Laravel_Projects/pr/app/Exceptions/Handler.php&#10;reset&#9;FILE&#9;file://E:/Laravel_Projects/pr/vendor/laravel/framework/src/Illuminate/Foundation/Auth/ResetsPasswords.php&#10;ResetPasswordController&#9;FILE&#9;file://E:/Laravel_Projects/pr/app/Http/Controllers/Auth/ResetPasswordController.php&#10;showResetForm&#9;null&#9;null&#10;sendResetLinkEmail&#9;null&#9;null&#10;showLinkRequestForm&#9;null&#9;null&#10;ForgotPasswordController&#9;null&#9;null&#10;Auth\Reset&#9;null&#9;null&#10;Reset&#9;null&#9;null&#10;header.css&#9;FILE&#9;file://E:/Laravel_Projects/pr/public/css/header.css&#10;about&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/MainPages/aboutUs.blade.php&#10;handler.php&#9;FILE&#9;file://E:/Laravel_Projects/pr/app/Exceptions/Handler.php&#10;web.&#9;FILE&#9;file://E:/Laravel_Projects/pr/routes/web.php&#10;our&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/MainPages/ourServices.blade.php&#10;contact&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/MainPages/contactUs.blade.php&#10;شیی&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/ajax/AddContent.blade.php&#10;updateCon&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/ajax/UpdateContent.blade.php&#10;عحیش&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/ajax/UpdateContentForMessagePage.blade.php&#10;ئث&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/auth/userMessagePage.blade.php&#10;Add&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/ajax/AddContent.blade.php&#10;Updatecon&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/ajax/UpdateContent.blade.php&#10;add&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/ajax/AddContent.blade.php&#10;message&#9;null&#9;null&#10;we&#9;FILE&#9;file://E:/Laravel_Projects/pr/routes/web.php&#10;mess&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/auth/messagesPage.blade.php&#10;updatecon&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/ajax/UpdateContent.blade.php&#10;mes&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/auth/messagesPage.blade.php&#10;ئثس&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/auth/messagesPage.blade.php&#10;permi&#9;FILE&#9;file://E:/Laravel_Projects/pr/app/Http/Controllers/PermissionController.php&#10;hea&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/Layouts/header.blade.php&#10;admincon&#9;FILE&#9;file://E:/Laravel_Projects/pr/app/Http/Controllers/Auth/AdminController.php&#10;messages&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/auth/messagesPage.blade.php&#10;Aja&#9;FILE&#9;file://E:/Laravel_Projects/pr/app/Http/Controllers/AjaxMessageController.php&#10;ajax&#9;FILE&#9;file://E:/Laravel_Projects/pr/app/Http/Controllers/AjaxContentController.php&#10;logs&#9;null&#9;null&#10;login&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/auth/login.blade.php&#10;register&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/auth/register.blade.php&#10;updateco&#9;FILE&#9;file://E:/Laravel_Projects/pr/resources/views/ajax/UpdateContent.blade.php" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="C:/LaravelTests/example" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="nodejs_interpreter_path" value="node" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "partOne-changeUI",
+    "last_opened_file_path": "E:/Programmer-Codes/Laravel/Payame-Rahpad-Two-ui/Payame-Rahpad",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Laravel_Projects\pr\public\images" />
@@ -178,6 +193,7 @@
       <item itemvalue="PHP Web Page.Unnamed" />
     </list>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -394,11 +410,55 @@
       <workItem from="1654707113449" duration="26000" />
       <workItem from="1656835010988" duration="690000" />
       <workItem from="1656835907859" duration="21000" />
+      <workItem from="1701630315352" duration="458000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="partOne-changeUI" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="partOne-changeUI" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="794" y="439" key="NewPhpFileDialog" timestamp="1651184442597">
