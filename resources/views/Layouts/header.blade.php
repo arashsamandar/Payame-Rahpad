@@ -37,16 +37,13 @@
 @if(Auth::user() || Auth::guard('admin')->check())
 
     <div class="container">
-        {{--<button class="btn btn-default btn-lg btn-link" id="messageButton" >--}}
-            {{--<span class="glyphicon glyphicon-envelope" id="messageIcon" style="color: orange;position: absolute;top: 15px;left:20px;"></span>--}}
-        {{--</button>--}}
         <div class="dropdown" style="position: absolute;left: 20px;top:30px;">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><figure>
 
                     @if(Auth::guard('admin')->check())
                         <img src="{{asset('images/default1.jpg')}}" class="ThisUserImage" /><br>
                         <span class="glyphicon glyphicon-menu-hamburger ThisuserNameAndFamily"> {{\App\Http\Controllers\AdminNameController::adminName()}} {{\App\Http\Controllers\AdminNameController::adminFamily()}} </span></figure></button>
-            </figure></button>
+            </button>
             @elseif(Auth::user())
                 @if(Auth::user()->hasOne('App\UserImages','user_id','id')->first())
                     <img class="ThisUserImage" src="{{ route('userimage',['id' => Auth::user()->id  ])}}" /><br>
