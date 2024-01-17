@@ -41,7 +41,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: public/css/
+          local-dir: /public/css/
           server-dir: /public_html/css/
 
       - name: FTP Deploy AdminLogin to public_html/AdminLogin
@@ -50,7 +50,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: public/AdminLogin/
+          local-dir: /public/AdminLogin/
           server-dir: /public_html/AdminLogin/
 
       - name: FTP Deploy images to public_html/css
@@ -59,7 +59,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: public/images/
+          local-dir: /public/images/
           server-dir: /public_html/images/
 
       - name: FTP Deploy CSS to public_html/css
@@ -68,7 +68,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: public/fonts/
+          local-dir: /public/fonts/
           server-dir: /public_html/fonts/
 
       - name: FTP Deploy photos to public_html/css
@@ -77,7 +77,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: public/photos/
+          local-dir: /public/photos/
           server-dir: /public_html/photos/
 
       - name: FTP Deploy Src to public_html/css
@@ -86,7 +86,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: public/src/
+          local-dir: /public/src/
           server-dir: /public_html/src/
 
       - name: FTP Deploy vendor to public_html/css
@@ -95,5 +95,5 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: public/vendor/
+          local-dir: /public/vendor/
           server-dir: /public_html/vendor/
