@@ -1,0 +1,99 @@
+on:
+  push:
+    branches:
+      - partOne-changeUI
+
+jobs:
+  ftp-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      # FTP Deploy step for the main directory
+      - name: FTP Deploy to public_html
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /public_html/
+          exclude: |
+            /public/**
+            .env
+            /public_html/index.php
+
+      # FTP Deploy step for the public/js directory
+      - name: FTP Deploy JS to public_html/js
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: public/js/
+          server-dir: /public_html/js/
+
+      # FTP Deploy step for the public/css directory
+      - name: FTP Deploy CSS to public_html/css
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: public/css/
+          server-dir: /public_html/css/
+
+      - name: FTP Deploy AdminLogin to public_html/AdminLogin
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: public/AdminLogin/
+          server-dir: /public_html/AdminLogin/
+
+      - name: FTP Deploy images to public_html/css
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: public/images/
+          server-dir: /public_html/images/
+
+      - name: FTP Deploy CSS to public_html/css
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: public/fonts/
+          server-dir: /public_html/fonts/
+
+      - name: FTP Deploy photos to public_html/css
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: public/photos/
+          server-dir: /public_html/photos/
+
+      - name: FTP Deploy Src to public_html/css
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: public/src/
+          server-dir: /public_html/src/
+
+      - name: FTP Deploy vendor to public_html/css
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: public/vendor/
+          server-dir: /public_html/vendor/
