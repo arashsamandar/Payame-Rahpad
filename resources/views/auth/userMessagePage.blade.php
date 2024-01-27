@@ -1,4 +1,4 @@
-@include('ajax.updateContent')
+@include('ajax.UpdateContent')
 @include('ajax.AddContentImages')
 @extends('Layouts.UpdeRegis')
 
