@@ -10,7 +10,6 @@ use Hekmatinasser\Verta\Verta;
 use Imgs;
 
 
-
 class ImageController extends Controller
 {
     public function __construct(Request $request)
@@ -134,9 +133,10 @@ class ImageController extends Controller
             ->select('id', 'title', 'brief', 'page_address')
             ->where('input_at', '=', 2)->where('is_confirmed','=',1)
             ->where('End_at', '>=', $v->formatDate())
-            ->get(); // Where Image Should Be ( Look in the Content Table
+            ->get();
 
         $arr = [];
+        // ------ Bellow Check Both Image_Twos & Image_Ones Table To Get The relevant image whether it is in image_one table or image_two
         foreach ($contents_querybuiler_array as $objectType) {
             if (isset(\DB::table('image_twos')->select('imagetwo')->where('content_id', '=', $objectType->id)->first()->imagetwo)) {
                 $arr[0][] = $objectType->id;
@@ -156,11 +156,3 @@ class ImageController extends Controller
     }
 
 }
-
-
-
-
-
-//return view('crop', compact('displayname', $displayname), compact('src', $src),
-//    compact('imgSrc', $imgSrc)
-//);

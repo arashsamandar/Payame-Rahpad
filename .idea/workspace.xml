@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0dbd0e0-3a99-4867-a59b-7543e5b75998" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/deploy.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/arashNewNew.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/newfileArashChange.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/justForTest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/UpdeRegis.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/UpdeRegis.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/userMessagePage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/userMessagePage.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ImageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +157,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Merging tests",
+    "git-widget-placeholder": "tests",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "E:/Programmer-Codes/Laravel/Payame-Rahpad-Two-ui/Payame-Rahpad",
     "node.js.detected.package.eslint": "true",
@@ -170,6 +165,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "inlay.hints",
     "vue.rearranger.settings.migration": "true"
   }
@@ -429,6 +425,7 @@
       <workItem from="1705338167550" duration="823000" />
       <workItem from="1705489609914" duration="2948000" />
       <workItem from="1706362719664" duration="2357000" />
+      <workItem from="1706432974067" duration="6842000" />
     </task>
     <servers />
   </component>
@@ -477,16 +474,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/PageManager.php</url>
-          <line>69</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

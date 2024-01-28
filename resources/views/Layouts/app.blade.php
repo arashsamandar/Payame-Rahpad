@@ -1,8 +1,6 @@
 @extends('Layouts.header')
 @section('contents')
-    {{--@if(Auth::guard('admin')->check())--}}
-      {{--<h1>{{Auth::guard('admin')->user()->family}}</h1>--}}
-    {{--@endif--}}
+<!-- Start Slider Container Start  -->
     <div class="container">
         <br><br><br>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -26,8 +24,7 @@
 
                     @endfor
                 @endif
-
-
+                <!-- Start Slider Default Pictures -->
                 <figure class="item">
                     <a href="{{route('ShahrPaad')}}"><img src="{{asset('images/Atehran.jpg')}}" alt="پروژه شهرپاد" title="شهرپاد به یاری فعالان در حوزه مدیریت شهری و روستایی کشور می شتابد. اطلاعات کلیه ارائه دهندگان محصولات و خدمات در حوزه مدیریت شهری و روستایی را جمع آوری کرده و بدون واسطه در اختیار کلیه نیازمندان به این اطلاعات قرار می دهد."  style="width:100%;"></a>
                 </figure>
@@ -45,7 +42,7 @@
                 </figure>
 
             </div>
-
+            <!-- Finish Slider Default Pictures -->
             <!-- Left and right controls -->
             <a class="left carousel-control"  href="#myCarousel" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left"></span>
@@ -53,9 +50,11 @@
             <a class="right carousel-control" href="#myCarousel" data-slide="next">
                 <span class="glyphicon glyphicon-chevron-right"></span>
             </a>
+            <!-- End Left and right controls -->
         </div>
 
     </div>
+<!-- Finish Slider Container -->
     <br><br><br>
 
     <div  style="width: 100%;margin: 0 auto;">
