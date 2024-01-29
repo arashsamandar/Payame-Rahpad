@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Hekmatinasser\Verta\Verta;
+use Carbon\Carbon;
 
 class PageManager extends Controller
 {
     public function makePages($pagename) {
 
-        $verta_object = new Verta();
-        $today_date = $verta_object->formatDate();
+        $dateTime = Carbon::now();
+        $today_date = $dateTime->toDateString();
         $contents = \DB::table('contents')->select('title','brief','definition','page_address')
             ->where('title','=',$pagename)
             ->where('End_at','>=',$today_date)->get();
@@ -38,10 +37,9 @@ class PageManager extends Controller
     }
 
     public function goToAddress($website) {
-        $verta_object = new Verta();
-        $today_date = $verta_object->formatDate();
+        $dateTime = Carbon::now();
         $address = \DB::table('contents')->select('page_address')->where('page_address','=',$website)
-            ->where('End_at','>=',$today_date)->get();
+            ->where('End_at','>=',$dateTime->toDateString())->get();
         $page_address = null;
 
         foreach ($address as $address_object) {

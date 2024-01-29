@@ -6,7 +6,7 @@ use App\Logs;
 use App\Content;
 use App\User as User;
 use App\messages as Messages;
-use Hekmatinasser\Verta\Verta;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\DB;
@@ -23,9 +23,6 @@ class AjaxMessageController extends Controller
     {
         if ($request->ajax()) {
             if (PermissionController::This_is_Admin_or_ContentManager()) {
-                $d = new \DateTime("now", new \DateTimeZone("iran"));
-                $time = $d->format('H:i:s');
-                $v = new Verta();
                 if (\Auth::user()) {
                     $signed_id_user_id = \Auth::user()->id;
                 } else {
@@ -54,13 +51,13 @@ class AjaxMessageController extends Controller
                     $user_content->is_confirmed = 1;
                     $user_content->update();
 
-
+                    $dateTime = Carbon::now();
                     Logs::create([
-                        'logDate' => $v->formatDate(),
-                        'logTime' => $time,
+                        'logDate' => $dateTime->toDateString(),
+                        'logTime' => $dateTime->format('H:i:s'),
                         'user_id' => $signed_id_user_id,
                         'logCode' => '020',
-                        'log_desc' => 'محتوا براش نمایش تایید شد',
+                        'log_desc' => 'Content approved for show',
                         'Reserved1' => $signed_id_user_id,
                         'Reserved2' => $user_content->user_id,
                     ]);
@@ -85,13 +82,13 @@ class AjaxMessageController extends Controller
                     Messages::where('content_id', $user_content_id)->update(['user_message' => $messages,'user_seen' => 0]);
                     $user_content->is_confirmed = 0;
                     $user_content->update();
-
+                    $dateTimeTwo = Carbon::now();
                     Logs::create([
-                        'logDate' => $v->formatDate(),
-                        'logTime' => $time,
+                        'logDate' => $dateTimeTwo->toDateString(),
+                        'logTime' => $dateTimeTwo->format('H:i:s'),
                         'user_id' => $signed_id_user_id,
                         'logCode' => '021',
-                        'log_desc' => 'محتوا تایید نشد ، ارسال پیام به کاربر',
+                        'log_desc' => 'Content rejected, message sent to user',
                         'Reserved1' => $signed_id_user_id,
                         'Reserved2' => $user_content->user_id,
                     ]);
@@ -115,13 +112,13 @@ class AjaxMessageController extends Controller
                     \DB::table('image_ones')->where('content_id', $user_content_id)->delete();
                     \DB::table('image_twos')->where('content_id', $user_content_id)->delete();
                     \DB::table('image_threes')->where('content_id', $user_content_id)->delete();
-
+                    $dateTimeThree = Carbon::now();
                     Logs::create([
-                        'logDate' => $v->formatDate(),
-                        'logTime' => $time,
+                        'logDate' => $dateTimeThree->toDateString(),
+                        'logTime' => $dateTimeThree->format('H:i:s'),
                         'user_id' => $signed_id_user_id,
                         'logCode' => '022',
-                        'log_desc' => 'محتوا حذف شد',
+                        'log_desc' => 'Content Removed',
                         'Reserved1' => $user_content->user_id,
                         'Reserved2' => $signed_id_user_id,
                     ]);
@@ -142,9 +139,6 @@ class AjaxMessageController extends Controller
     {
         if ($request->ajax()) {
             if (PermissionController::This_is_Admin_or_ContentManager()) {
-                $d = new \DateTime("now", new \DateTimeZone("iran"));
-                $time = $d->format('H:i:s');
-                $v = new Verta();
                 if (\Auth::user()) {
                     $signed_id_user_id = \Auth::user()->id;
                 } else {
@@ -167,13 +161,13 @@ class AjaxMessageController extends Controller
                     $user_content->is_confirmed = 1;
                     $user_content->update();
 
-
+                    $dateTime = Carbon::now();
                     Logs::create([
-                        'logDate' => $v->formatDate(),
-                        'logTime' => $time,
+                        'logDate' => $dateTime->toDateString(),
+                        'logTime' => $dateTime->format('H:i:s'),
                         'user_id' => $signed_id_user_id,
                         'logCode' => '020',
-                        'log_desc' => 'محتوا براش نمایش تایید شد',
+                        'log_desc' => 'Content approved for show',
                         'Reserved1' => $signed_id_user_id,
                         'Reserved2' => $user_content->user_id,
                     ]);
@@ -194,13 +188,13 @@ class AjaxMessageController extends Controller
                     Messages::where('content_id', $user_content_id)->update(['user_message' => $admin_message,'user_seen' => 0]);
                     $user_content->is_confirmed = 0;
                     $user_content->update();
-
+                    $dateTimeTwo = Carbon::now();
                     Logs::create([
-                        'logDate' => $v->formatDate(),
-                        'logTime' => $time,
+                        'logDate' => $dateTimeTwo->toDateString(),
+                        'logTime' => $dateTimeTwo->format('H:i:s'),
                         'user_id' => $signed_id_user_id,
                         'logCode' => '021',
-                        'log_desc' => 'محتوا تایید نشد ، ارسال پیام به کاربر',
+                        'log_desc' => 'Content rejected, message sent to user',
                         'Reserved1' => $signed_id_user_id,
                         'Reserved2' => $user_content->user_id,
                     ]);
@@ -221,13 +215,13 @@ class AjaxMessageController extends Controller
                     \DB::table('image_ones')->where('content_id', $user_content_id)->delete();
                     \DB::table('image_twos')->where('content_id', $user_content_id)->delete();
                     \DB::table('image_threes')->where('content_id', $user_content_id)->delete();
-
+                    $dateTimeThree = Carbon::now();
                     Logs::create([
-                        'logDate' => $v->formatDate(),
-                        'logTime' => $time,
+                        'logDate' => $dateTimeThree->toDateString(),
+                        'logTime' => $dateTimeThree->format('H:i:s'),
                         'user_id' => $signed_id_user_id,
                         'logCode' => '022',
-                        'log_desc' => 'محتوا حذف شد',
+                        'log_desc' => 'Content Removed',
                         'Reserved1' => $user_content->user_id,
                         'Reserved2' => $signed_id_user_id,
                     ]);
@@ -281,17 +275,17 @@ class AjaxMessageController extends Controller
                 $content_situation = $message->contents()->first()->is_confirmed;
                 $content_id = $message->contents()->first()->id;
                 if ($content_situation == 1) {
-                    return 'پیام برای نمایش تایید شده';
+                    return 'Content approved for show';
                 }
                 if ($content_situation == 0) {
-                    return 'درخواست ویرایش محتوا برای کاربر ارسال شد';
+                    return 'Content Send back to user to get changed';
                 }
                 if ($content_situation == 4) {
-                    $details = 'محتوا ' . 'به شماره ثبت ' . $content_id . ' توسط کاربر ایجاد شد ' . 'در انتظار تایید';
+                    $details = 'Content ' . 'with ID Number : ' . $content_id . ' was created by user ' . 'waiting for approval';
                     return $details;
                 }
                 if($content_situation == 5) {
-                    $details = 'محتوا ' . 'به شماره ثبت ' . $content_id . ' توسط کاربر تغییر کرد ' . 'در انتظار تایید';
+                    $details = 'Content ' . 'with ID Number : ' . $content_id . ' was changed by user ' . 'waiting for approval';
                     return $details;
                 }
             }
@@ -419,17 +413,17 @@ class AjaxMessageController extends Controller
             if(isset($message->contents()->first()->is_confirmed)) {
                 $content_situation = $message->contents()->first()->is_confirmed;
                 if ($content_situation == 1) {
-                    return 'پیام شما برای نمایش تایید شد';
+                    return 'Message approved for show';
                 }
                 if ($content_situation == 0) {
-                    return 'پیام را ویرایش کنید';
+                    return 'Edit Message';
                 }
                 if ($content_situation == 4) {
-                    $details = 'محتوای شما در انتظار تایید است';
+                    $details = 'Content is waiting for approval';
                     return $details;
                 }
                 if($content_situation == 5) {
-                    $details = 'درخواست تایید محتوای شما در انتظار تایید است';
+                    $details = 'Your approval request is pending';
                     return $details;
                 }
             }

@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\PermissionController as USCC;
-use Hekmatinasser\Verta\Verta;
 use App\Logs;
 use App\Content;
 use App\ImageOne;
 use App\ImageTwo;
 use App\ImageThree;
 use App\messages as Messages;
+use Carbon\Carbon;
 use Imgs;
 
 class AjaxContentController extends Controller
@@ -41,7 +41,6 @@ class AjaxContentController extends Controller
             $log_big_image = 0;
             $log_small_image = 0;
             $log_verysmall_image = 0;
-            $date_created = new Verta(); //date created
             if (\Auth::user()) {
                 $user_id = \Auth::user()->id;
             } else {
@@ -62,7 +61,7 @@ class AjaxContentController extends Controller
                     'definition' => $request->input('input_definition'),
                     'End_at' => $request->input('end_date'),
                     'Begin_at' => $request->input('start_date'),
-                    'created_at' => $date_created->formatDate(),
+                    'created_at' => Carbon::now()->toDateString(),
                     'is_confirmed' => $isconfirmed,
 
                 ]);
@@ -138,23 +137,21 @@ class AjaxContentController extends Controller
                     $log_verysmall_image = 1;
 
                 }
-                $d = new \DateTime("now", new \DateTimeZone("iran"));
-                $time = $d->format('H:i:s');
-                $v = new Verta();
-                $sum_of_images = 'ایجاد محتوا . ';
+
+                $sum_of_images = ' content created with ';
                 if ($log_big_image == 1) {
-                    $sum_of_images .= ' تصویر بزرگ ';
+                    $sum_of_images .= ' big image ';
                 }
                 if ($log_small_image == 1) {
-                    $sum_of_images .= ' و تصویر پایین ';
+                    $sum_of_images .= ' and smaller image ';
                 }
                 if ($log_verysmall_image == 1) {
-                    $sum_of_images .= ' و تصویر خیلی کوچک ';
+                    $sum_of_images .= ' and very small image ';
                 }
-
+                $dateTime = Carbon::now();
                 Logs::create([
-                    'logDate' => $v->formatDate(),
-                    'logTime' => $time,
+                    'logDate' => $dateTime->toDateString(),
+                    'logTime' => $dateTime->format('H:i:s'),
                     'user_id' => $user_id,
                     'logCode' => '014',
                     'log_desc' => $sum_of_images,
@@ -305,32 +302,27 @@ class AjaxContentController extends Controller
                 $content->update($request->all());
 
 
-
-
-
-                $v = new Verta();
-                $sum_of_images = 'بروز رسانی محتوا . ';
+                $sum_of_images = ' content updated ';
                 if ($bimage == 1) {
-                    $sum_of_images .= ' با تصویر بزرگ ';
+                    $sum_of_images .= ' with big image ';
                 }
                 if ($simage == 1) {
-                    $sum_of_images .= ' و تصویر پایین ';
+                    $sum_of_images .= ' and smaller image ';
                 }
                 if ($vsimage == 1) {
-                    $sum_of_images .= ' و تصویر خیلی کوچک ';
+                    $sum_of_images .= ' and very small image ';
                 }
-                $d = new \DateTime("now", new \DateTimeZone("iran"));
-                $time = $d->format('H:i:s');
 
                 if(!PermissionController::This_is_Admin_or_ContentManager()) {
                     $message = Messages::where('content_id',$content->id);
                     $message->update(['admin_seen' => 0]);
                 }
 
+                $dateTime = Carbon::now();
 
                 Logs::create([
-                    'logDate' => $v->formatDate(),
-                    'logTime' => $time,
+                    'logDate' => $dateTime->toDateString(),
+                    'logTime' => $dateTime->format('H:i:s'),
                     'user_id' => $user_id,
                     'logCode' => '015',
                     'log_desc' => $sum_of_images,
@@ -406,15 +398,15 @@ class AjaxContentController extends Controller
                 \DB::table('image_twos')->where('content_id', '=', $content1->id)->delete();
                 \DB::table('image_threes')->where('content_id', '=', $content1->id)->delete();
                 \DB::table('messages')->where('content_id','=',$content1->id)->delete();
-                $d = new \DateTime("now", new \DateTimeZone("iran"));
-                $time = $d->format('H:i:s');
-                $v = new Verta();
+
+                $dateTime = Carbon::now();
+
                 Logs::create([
-                    'logDate' => $v->formatDate(),
-                    'logTime' => $time,
+                    'logDate' => $dateTime->toDateString(),
+                    'logTime' => $dateTime->format('H:i:s'),
                     'user_id' => $user_id,
                     'logCode' => '015',
-                    'log_desc' => 'حذف محتوا',
+                    'log_desc' => 'content removed',
                     'Reserved1' => $user_id,
                     'Reserved2' => $contentBelongsToUser,
                 ]);

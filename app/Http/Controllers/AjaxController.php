@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\PermissionController as USC;
 use Illuminate\Support\Facades\DB;
 use App\User;
-use Hekmatinasser\Verta\Verta;
 use App\Logs;
 use App\UserImages;
 use App\Permissions as Permissions;
@@ -47,9 +47,6 @@ class AjaxController extends Controller
     {
         if ($request->ajax()) {
             if (USC::CheckPermission($request->id)) {
-                $v = new Verta();
-                $d = new \DateTime("now", new \DateTimeZone("iran"));
-                $time = $d->format('H:i:s');
                 if(\Auth::user()) {
                     $userid = \Auth::user()->id;
                 } else {
@@ -66,7 +63,7 @@ class AjaxController extends Controller
                     'password' => bcrypt($request->input('password')),
                     'cell_phone' => $request->input('cell_phone'),
                     'email' => $request->input('email'),
-                    'created_at_shamsi' => $v->formatDate(),
+                    'created_at_shamsi' => Carbon::now()->toDateString(),
                 ]);
 
                 if ($request->get('usercropedimage')) {
@@ -82,13 +79,13 @@ class AjaxController extends Controller
                     ]);
 
                 }
-
+                $dateTime = Carbon::now();
                 Logs::create([
-                    'logDate' => $v->formatDate(),
-                    'logTime' => $time,
+                    'logDate' => $dateTime->toDateString(),
+                    'logTime' => $dateTime->format('H:i:s'),
                     'user_id' => $contact->id,
                     'logCode' => '010',
-                    'log_desc' => 'حساب با موفقیت ایجاد شد',
+                    'log_desc' => 'account created successfully',
                     'Reserved1' => $userid,
                     'Reserved2' => $contact->id,
                 ]);
@@ -108,8 +105,6 @@ class AjaxController extends Controller
 
         if ($request->ajax()) {
             if (USC::CheckPermission($request->id)) {
-                $d = new \DateTime("now", new \DateTimeZone("iran"));
-                $time = $d->format('H:i:s');
                 $contact1 = User::find($request->id);
                 if(\Auth::user()) {
                     $userid = \Auth::user()->id;
@@ -122,11 +117,10 @@ class AjaxController extends Controller
 
                 User::destroy($request->id);
 
-                $v = new Verta();
-
+                $dateTime = Carbon::now();
                 Logs::create([
-                    'logDate' => $v->formatDate(),
-                    'logTime' => $time,
+                    'logDate' => $dateTime->toDateString(),
+                    'logTime' => $dateTime->format('H:i:s'),
                     'user_id' => $contact1->id,
                     'logCode' => '014',
                     'log_desc' => 'حساب با موفقیت حذف شد',
@@ -166,8 +160,6 @@ class AjaxController extends Controller
         if($request->ajax()) {
             if(USC::CheckPermission($request->id)) {
                 $contact = User::find($request->id);
-                $d = new \DateTime("now", new \DateTimeZone("iran"));
-                $time = $d->format('H:i:s');
                 if(\Auth::user()) {
                     $userid = \Auth::user()->id;
                 } else {
@@ -202,11 +194,10 @@ class AjaxController extends Controller
 
                 $contact->update($request->all());
 
-                $v = new Verta();
-
+                $dateTime = Carbon::now();
                 Logs::create([
-                    'logDate' => $v->formatDate(),
-                    'logTime' => $time,
+                    'logDate' => $dateTime->toDateString(),
+                    'logTime' => $dateTime->format('H:i:s'),
                     'user_id' => $contact->id,
                     'logCode' => '011',
                     'log_desc' => 'حساب با موفقیت ویرایش شد',
@@ -263,9 +254,6 @@ class AjaxController extends Controller
         $myuserpass = bcrypt($_POST['mypass']);
         $myuserid = $_POST['myid'];
         if (USC::CheckPermission($myuserid)) {
-            $v = new Verta();
-            $d = new \DateTime("now", new \DateTimeZone("iran"));
-            $time = $d->format('H:i:s');
             if(\Auth::user()) {
                 $userid = \Auth::user()->id;
             } else {
@@ -275,9 +263,10 @@ class AjaxController extends Controller
 
             $passchanged = \DB::table('users')->where('id', $myuserid)->update(['password' => $myuserpass]);
 
+            $dateTime = Carbon::now();
             Logs::create([
-                'logDate' => $v->formatDate(),
-                'logTime' => $time,
+                'logDate' => $dateTime->toDateString(),
+                'logTime' => $dateTime->format('H:i:s'),
                 'user_id' => $myuserid,
                 'logCode' => '013',
                 'log_desc' => 'رمز عبور با موفقیت تغییر کرد',
@@ -345,8 +334,6 @@ class AjaxController extends Controller
     public function change_access(Request $request) {
         if($request->ajax()) {
             if(\Auth::guard('admin')->check()) {
-                $d = new \DateTime("now", new \DateTimeZone("iran"));
-                $time = $d->format('H:i:s');
                 $user_id = $_POST['this_user_id'];
                 $grant_users_access = $_POST['allow_user_area'];
                 $grant_contents_access = $_POST['allow_content_area'];
@@ -361,11 +348,10 @@ class AjaxController extends Controller
                     if($grant_contents_access == 1) {$user_acc .= 'محتوا ';} if($grant_users_access == 1) {$user_acc .= 'کاربران ';}
                     $user_acc .= 'داده شد';
 
-                    $v = new Verta();
-
+                    $dateTime = Carbon::now();
                     Logs::create([
-                        'logDate' => $v->formatDate(),
-                        'logTime' => $time,
+                        'logDate' => $dateTime->toDateString(),
+                        'logTime' => $dateTime->format('H:i:s'),
                         'user_id' => $user_id,
                         'logCode' => '012',
                         'log_desc' => $user_acc,
@@ -382,12 +368,10 @@ class AjaxController extends Controller
                         'access_users' => $grant_users_access,
                         'access_contents' => $grant_contents_access,
                     ]);
-
-                    $v = new Verta();
-
+                    $dateTimeTwo = Carbon::now();
                     Logs::create([
-                        'logDate' => $v->formatDate(),
-                        'logTime' => $time,
+                        'logDate' => $dateTimeTwo->toDateString(),
+                        'logTime' => $dateTimeTwo->format('H:i:s'),
                         'user_id' => $user_id,
                         'logCode' => '012',
                         'log_desc' => $user_acc,

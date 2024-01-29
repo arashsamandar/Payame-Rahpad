@@ -14,7 +14,7 @@ $(function () {
         if($.trim(name) === '') {$("#namewarn").css('display','block');return false;}
         if($.trim(family) === '') {$("#familywarn").css('display','block');return false;}
         if($.trim(username) === '') {$("#usernamewarn").css('display','block');return false;}
-        if($.trim(date) === '') {$("#bd").attr('placeholder','تاریخ را وارد کنید مانند 1367/06/29');return false}
+        if($.trim(date) === '') {$("#bd").attr('placeholder','تاریخ را وارد کنید مانند 2024/06/01');return false}
         if(!bd.match(dateReg)) {$("#bdwarn").css('display','block');return false;}
         if(nac.length < 10) {$("#nacwarnmore").css('display','none');$("#nacwarn").css('display','block');return false;}
         if(nac.length > 10) {$("#nacwarnmore").css('display','block');$("#nacwarn").css('display','none');return false;}
@@ -51,22 +51,6 @@ $(function () {
     });
 });
 
-// $(function () {
-//     $('#frm-update').submit(function () {
-//        var namee = $('#frm-update').find('#namee').val();
-//        if(namee === 'arash') {
-//            alert('samandar');
-//        }
-//     });
-// });
-
-// $(function () {
-//     $("#namee").keydown(function () {
-//         var VAL = this.value;
-//         if (/^[A-Za-z][A-Za-z0-9]*$/.test(VAL) || !isNaN(VAL) && e.keyCode !== 9) { $("#nameewarnn").css('display','block');} else {$("#nameewarnn").css('display','none');}
-//     });
-// });
-
 $(function () {
     $("#passchangeform").submit(function () {
         var pass = $("#pass").val();
@@ -76,12 +60,6 @@ $(function () {
         if($.trim(pass) !== $.trim(passconf)) {$("#passconfwarn").css('display','block');return false}
     });
 });
-
-
-
-
-//end processing the form
-
 
 $(function () {
     $("#name").keydown(function () {
@@ -140,8 +118,8 @@ $(function () {
         changeYear:true,
         changeMonth: true,
         dateFormat: 'yy/mm/dd',
-        yearRange:'1330:1400',
-        defaultDate: '1300/01/01'
+        yearRange:'1950:2024',
+        defaultDate: '2024/01/01'
     });
 
 });
@@ -151,10 +129,9 @@ $(function () {
         changeYear:true,
         changeMonth: true,
         dateFormat: 'yy/mm/dd',
-        yearRange:'1330:1400',
-        defaultDate: '1300/01/01'
+        yearRange:'2024:2040',
+        defaultDate: '2024/01/01'
     });
-
 });
 
 $(function () {
@@ -162,8 +139,8 @@ $(function () {
         changeYear:true,
         changeMonth: true,
         dateFormat: 'yy/mm/dd',
-        yearRange:'1330:1400',
-        defaultDate: '1300/01/01'
+        yearRange:'2024:2040',
+        defaultDate: '2024/01/01'
     });
 
 });

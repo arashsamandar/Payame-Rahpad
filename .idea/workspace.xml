@@ -5,9 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0dbd0e0-3a99-4867-a59b-7543e5b75998" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/tests/Feature/TestDates.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.phpunit.result.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxContentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxMessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxMessageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ImageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ImageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PageManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PageManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserUpdateController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserUpdateController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/rejs.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/rejs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/UpdeRegis.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/UpdeRegis.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/UserTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,13 +159,16 @@
   </component>
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" />
   <component name="ProjectId" id="1W0yJNms0S8X9ppES4KC94DdvxM" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -425,7 +440,8 @@
       <workItem from="1705338167550" duration="823000" />
       <workItem from="1705489609914" duration="2948000" />
       <workItem from="1706362719664" duration="2357000" />
-      <workItem from="1706432974067" duration="6842000" />
+      <workItem from="1706432974067" duration="8116000" />
+      <workItem from="1706525994513" duration="10502000" />
     </task>
     <servers />
   </component>
@@ -474,5 +490,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

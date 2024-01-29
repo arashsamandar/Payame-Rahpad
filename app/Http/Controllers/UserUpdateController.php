@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 
 
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Hekmatinasser\Verta\Verta;
 use App\Logs;
 use Validator;
 use Illuminate\Http\UploadedFile;
@@ -54,8 +54,8 @@ class UserUpdateController extends Controller
     {
 
         $validatedData = $request->validate([
-            'name' => 'required|regex:/^[آ ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی]+$/u|max:25',
-            'family' => 'required|regex:/^[آ ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی]+$/u|max:25',
+            'name' => 'required|max:25',
+            'family' => 'required|max:25',
             'email' => 'required|email|max:40',
             'birth_date' => 'required|date',
             'national_code' => 'required|numeric|max:9999999999',
@@ -64,37 +64,35 @@ class UserUpdateController extends Controller
             'userimage' => 'image|mimes:jpeg,png,jpg|max:2048'
         ],
             [
-                'name.required' => 'وارد کردن نام الزامیست',
-                'name.regex' => 'نام را به فارسی وارد کنید',
-                'name.max' => 'نام نمیتواند بیش از 25 کاراکتر باشد',
+                'name.required' => 'name is required',
+                'name.max' => 'cant be more than 25 characters long',
 
-                'family.required' => 'وارد کردن نام خانوادگی الزامیست',
-                'family.regex' => 'نام خانوادگی را به فارسی وارد کنید',
-                'family.max' => 'نام خانوادگی نمیتواند بیش از 25 کاراکتر باشد',
+                'family.required' => 'family is required',
+                'family.max' => 'cant be more than 25 characters long',
 
-                'birth_date.required' => 'وارد کردن تاریخ تولد الزامیست',
-                'birth_date.date' => 'لطفا تاریخ را صحیح وارد کنید',
+                'birth_date.required' => 'birth-date is required',
+                'birth_date.date' => 'birth-date invalid format',
 
-                'national_code.required' => 'وارد کردن کد ملی الزامیست',
-                'national_code.unique' => 'کد ملی وارد شده قبلا در سیستم ثبت شده',
-                'national_code.max' => 'کد ملی نمی تواند بیش از 10 عدد باشد',
-                'national_code.numeric' => 'کد ملی نمیتواند دارای حروف یا کاراکتر باشد',
+                'national_code.required' => 'national code is required',
+                'national_code.unique' => 'national code already taken',
+                'national_code.max' => 'national code cant be more than 10 characters long',
+                'national_code.numeric' => 'national code cant have letters',
 
-                'cell_phone.required' => 'وارد کردن شماره ی تلفن الزامیست',
-                'cell_phone.numeric' => 'شماره ی تلفن نمیتواند دارای حروف باشد',
-                'cell_phone.max' => 'شماره ی تلفن نمیتواند بیش از 11 عدد باشد',
+                'cell_phone.required' => 'phone number is required',
+                'cell_phone.numeric' => 'phone number cant have letters',
+                'cell_phone.max' => 'phone number cant be more than 11 numbers',
 
-                'gender.max' => 'جنسیت نمیتواند بیش از 4 کاراکتر باشد',
-                'gender.required' => 'وارد کردن جنسیت الزامیست',
+                'gender.max' => 'gender cant be more than 4 characters',
+                'gender.required' => 'gender is required',
 
-                'email.required' => 'وارد کردن آدرس پست الکترونیکی الزامیست',
-                'email.unique' => 'آدرس پست الکترونیکی قبلا در سیستم ثبت شده',
-                'email.email' => 'لطفا آدرس پست الکترونیکی را به دقت وارد کنید',
-                'email.max' => 'پست الکترونیکی نمیتواند بیش از 40 طول داشته باشد',
+                'email.required' => 'email address is required',
+                'email.unique' => 'email address already taken',
+                'email.email' => 'email address format invalid',
+                'email.max' => 'too long, cant be more than 40 characters long',
 
-                'userimage.max' => 'حجم فایل بالاتر از میزان مجاز است',
-                'userimage.image' => 'تصاویر مجاز : jpg jpeg png',
-                'userimage.mimes' => 'تصاویر مجاز : jpg jpeg png',
+                'userimage.max' => 'file size too large',
+                'userimage.image' => 'valid image formats : jpg jpeg png',
+                'userimage.mimes' => 'valid images : jpg jpeg png',
 
             ]);
 
@@ -140,20 +138,14 @@ class UserUpdateController extends Controller
 
 
         \Auth::user()->save();
-        $d = new \DateTime("now", new \DateTimeZone("iran"));
-        $time = $d->format('H:i:s');
 
-
-
-
-        $v = new Verta();
-
+        $dateTime = Carbon::now();
         Logs::create([
-            'logDate' => $v->formatDate(),
-            'logTime' => $time,
+            'logDate' => $dateTime->toDateString(),
+            'logTime' => $dateTime->format('H:i:s'),
             'user_id' => \Auth::user()->id,
             'logCode' => '011',
-            'log_desc' => 'کاربر مشخصات خود را ویرایش کرد',
+            'log_desc' => 'User updated his/her information',
             'Reserved1' => \Auth::user()->id,
             'Reserved2' => \Auth::user()->id,
         ]);

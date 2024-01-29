@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
-use Hekmatinasser\Verta\Verta;
 use Imgs;
 
 
@@ -19,23 +19,10 @@ class ImageController extends Controller
 
     public function showimage($id) {
         $imageData = \DB::table('user_images')->select('image')->where('user_id','=',$id)->first()->image;
-
-//        $verysmallimageData = $request->get('user_verysmall_croped_image');
-//        $verysmall_info = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $verysmallimageData));
-//        $verysmall_img = Imgs::make($verysmall_info);
-//        $verysmall_img->encode('jpg', 80);
-//        $verysmall_final_image = base64_encode($verysmall_img);
-
-//        ImageThree::create([
-//            'content_id' => $content->id,
-//            'user_id' => $user_id,
-//            'imagethree' => $verysmall_final_image,
-//        ]);
-
-            $info = $info = base64_decode($imageData);
-            $img = Imgs::make($info);
-            $img->encode('jpg',80);
-            return $img;
+        $info = $info = base64_decode($imageData);
+        $img = Imgs::make($info);
+        $img->encode('jpg',80);
+        return $img;
     }
 
     public function showimageform()
@@ -101,15 +88,14 @@ class ImageController extends Controller
 
     public static function checkContent_Image_Number()
     {
-
         //-------------------------- Warning ------------------------
         //---- This Is Not The Correct Way Of How Relations Work In Laravel -----
-        $v = new Verta();
+        $dateTime = Carbon::now();
         $contents_querybuiler_array = \DB::table('contents')
             ->select('id', 'title', 'brief', 'page_address')
             ->where('input_at', '=', 1)->where('is_confirmed','=',1)
-            ->where('End_at', '>=', $v->formatDate())
-            ->get(); // Where Image Should Be ( Look in the Content Table
+            ->where('End_at', '>=', $dateTime->toDateString())
+            ->get(); // Where Image Should Be ( Look in the Content Table )
         $arr = [];
         foreach ($contents_querybuiler_array as $objectType) {
             if (isset(\DB::table('image_ones')->select('imageone')->where('content_id', '=', $objectType->id)->first()->imageone)) {
@@ -126,13 +112,13 @@ class ImageController extends Controller
     public static function checkContent_Image_Number_Bellow_Slider()
     {
 
-        $v = new Verta();
+        $dateTime = Carbon::now();
         //-------------------------- Warning ------------------------
         //---- This Is Not The Correct Way Of How Relations Work In Laravel -----
         $contents_querybuiler_array = \DB::table('contents')
             ->select('id', 'title', 'brief', 'page_address')
             ->where('input_at', '=', 2)->where('is_confirmed','=',1)
-            ->where('End_at', '>=', $v->formatDate())
+            ->where('End_at', '>=', $dateTime->toDateString())
             ->get();
 
         $arr = [];

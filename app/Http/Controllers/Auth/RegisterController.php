@@ -6,9 +6,9 @@ use App\User;
 use App\Logs;
 use App\UserImages;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
 use Imgs;
 
@@ -60,8 +60,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|regex:/^[آ ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی]+$/u|max:25',
-            'family' => 'required|regex:/^[آ ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی]+$/u|max:25',
+            'name' => 'required|max:25',
+            'family' => 'required|max:25',
             'password' => 'required|confirmed',
             'email' => 'required|email|unique:users',
             'username' => 'required|unique:users',
@@ -72,61 +72,46 @@ class RegisterController extends Controller
             'userimage' => 'image|mimes:jpeg,png,jpg,svg|max:6000',
         ],
             [
-                'name.required' => 'وارد کردن نام الزامیست',
-                'name.regex' => 'نام را به فارسی وارد کنید',
+                'name.required' => 'name is required',
+                'name.max' => 'maximum character 25',
 
 
-                'userimage.image' => 'تصاویر مجاز : jpg jpeg png',
-                'userimage.mimes' => 'تصاویر مجاز : jpg jpeg png',
+                'userimage.image' => 'valid image formats : jpg jpeg png',
+                'userimage.mimes' => 'valid images : jpg jpeg png',
 
-                'family.required' => 'وارد کردن نام خانوادگی الزامیست',
-                'family.regex' => 'نام خانوادگی را به فارسی وارد کنید',
+                'family.required' => 'family is required',
 
-                'username.required' => 'وارد کردن نام کاربری الزامیست',
-                'username.unique' => 'نام کاربری قبلا در سیستم ثبت شده',
+                'username.required' => 'username is required',
+                'username.unique' => 'username already taken',
 
-                'birth_date.required' => 'وارد کردن تاریخ تولد الزامیست',
-                'birth_date.date' => 'لطفا تاریخ را صحیح وارد کنید',
+                'birth_date.required' => 'birth-date is required',
+                'birth_date.date' => 'date format is incorrect',
 
-                'national_code.required' => 'وارد کردن کد ملی الزامیست',
-                'national_code.unique' => 'کد ملی وارد شده قبلا در سیستم ثبت شده',
-                'national_code.max' => 'کد ملی نمی تواند بیش از 10 عدد باشد',
-                'national_code.numeric' => 'کد ملی نمیتواند دارای حروف یا کاراکتر باشد',
+                'national_code.required' => 'national code is neccesary',
+                'national_code.unique' => 'national code already taken',
+                'national_code.max' => 'national code cant be more than 10 characters long',
+                'national_code.numeric' => 'national code cant have symbols or letters',
 
-                'cell_phone.required' => 'وارد کردن شماره ی تلفن الزامیست',
-                'cell_phone.numeric' => 'شماره ی تلفن نمیتواند دارای حروف باشد',
-                'cell_phone.max' => 'شماره ی تلفن نمیتواند بیش از 11 عدد باشد',
+                'cell_phone.required' => 'phone number is required',
+                'cell_phone.numeric' => 'phone number cant have letters',
+                'cell_phone.max' => 'phone number cant be more than 11 numbers',
 
-                'gender.max' => 'جنسیت نمیتواند بیش از 4 کاراکتر باشد',
-                'gender.required' => 'وارد کردن جنسیت الزامیست',
+                'gender.max' => 'gender cant be more than 4 letters',
+                'gender.required' => 'gender is required',
 
-                'password.required' => 'پسورد را وارد کنید',
-                'password.confirmed' => 'تکرار پسورد با پسورد وارد شده یکسان نیستند',
+                'password.required' => 'please enter password',
+                'password.confirmed' => 'password confirmation is wrong',
 
-                'email.required' => 'وارد کردن آدرس پست الکترونیکی الزامیست',
-                'email.unique' => 'آدرس پست الکترونیکی قبلا در سیستم ثبت شده',
-                'email.email' => 'لطفا آدرس پست الکترونیکی را به دقت وارد کنید',
+                'email.required' => 'email address is required',
+                'email.unique' => 'email address already taken',
+                'email.email' => 'not a valid email address',
 
             ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-
-
     protected function create(array $data)
     {
-
-        $v = new Verta();
-        $d = new \DateTime("now", new \DateTimeZone("iran"));
-        $time = $d->format('H:i:s');
-
-
-
+        $dateTime = Carbon::now();
         $user = User::create([
             'name' => $data['name'],
             'family' => $data['family'],
@@ -137,7 +122,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'cell_phone' => $data['cell_phone'],
             'email' => $data['email'],
-            'created_at_shamsi' => $v->formatDate(),
+            'created_at_shamsi' => $dateTime->toDateString(),
         ]);
 
         if($this->request->get('image-data')) {
@@ -158,11 +143,11 @@ class RegisterController extends Controller
         //_____________________End Saving user image___________________
 
         Logs::create([
-            'logDate' => $v->formatDate(),
-            'logTime' => $time,
+            'logDate' => $dateTime->toDateString(),
+            'logTime' => $dateTime->format('H:i:s'),
             'user_id' => $user->id,
             'logCode' => '010',
-            'log_desc' => 'حساب با موفقیت ایجاد شد',
+            'log_desc' => 'User created successfully',
             'Reserved1' => $user->id,
             'Reserved2' => $user->id,
         ]);

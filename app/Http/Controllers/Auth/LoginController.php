@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\User as User;
 use App\Logs;
-use Hekmatinasser\Verta\Verta as Verta;
 
 class LoginController extends Controller
 {
@@ -39,8 +39,6 @@ class LoginController extends Controller
 
     public function login(Request $request, Logs $logs)
     {
-        $d = new \DateTime("now", new \DateTimeZone("iran"));
-        $time = $d->format('H:i:s');
 
         $username = $request->input('username');
         $password = $request->input('password');
@@ -69,12 +67,12 @@ class LoginController extends Controller
         if (\Auth::attempt(['username' => $username, 'password' => $password])) {
 
             $logdata = [];
-            $v = new Verta();
-            $logdata['logDate'] = $v->formatDate();
-            $logdata['logTime'] = $time;
+            $dateTime = Carbon::now();
+            $logdata['logDate'] = $dateTime->toDateString();
+            $logdata['logTime'] = $dateTime->format('H:i:s');
             $logdata['user_id'] = $myuser1->id;
             $logdata['logCode'] = '001';
-            $logdata['log_desc'] = 'ورود موفقیت آمیز کاربر به سیستم';
+            $logdata['log_desc'] = 'User Login Successful with username';
             $logdata['Reserved1'] = $myuser1->id;
             $logdata['Reserved2'] = $myuser1->id;
             $logs->insert($logdata);
@@ -82,12 +80,12 @@ class LoginController extends Controller
 
         } elseif ( \Auth::attempt(['email' => $username, 'password' => $password]) ) {
             $logdata = [];
-            $v = new Verta();
-            $logdata['logDate'] = $v->formatDate();
-            $logdata['logTime'] = $time;
+            $dateTime = Carbon::now();
+            $logdata['logDate'] = $dateTime->toDateString();
+            $logdata['logTime'] = $dateTime->format('H:i:s');
             $logdata['user_id'] = $myuser1->id;
             $logdata['logCode'] = '001';
-            $logdata['log_desc'] = 'ورود موفقیت آمیز کاربر به سیستم';
+            $logdata['log_desc'] = 'User login successful with email';
             $logdata['Reserved1'] = $myuser1->id;
             $logdata['Reserved2'] = $myuser1->id;
             $logs->insert($logdata);
@@ -96,24 +94,24 @@ class LoginController extends Controller
         elseif ( !empty($myuser1) && $myuser1->username == $username) {
 
             $logdata = [];
-            $v = new Verta();
-            $logdata['logDate'] = $v->formatDate();
-            $logdata['logTime'] = $time;
+            $dateTime = Carbon::now();
+            $logdata['logDate'] = $dateTime->toDateString();
+            $logdata['logTime'] = $dateTime->format('H:i:s');
             $logdata['user_id'] = $myuser1->id;
             $logdata['logCode'] = '002';
-            $logdata['log_desc'] = 'عدم ورود موفق کاربر به دلیل رمز عبور اشتباه';
+            $logdata['log_desc'] = 'Login reject with wrong password';
             $logdata['Reserved1'] = $myuser1->id;
             $logdata['Reserved2'] = $myuser1->id;
             $logs->insert($logdata);
-            return view('auth.login',['usincorrect' => 'رمز عبور اشتباه است']);
+            return view('auth.login',['usincorrect' => 'password is incorrect']);
 
         } elseif(empty($myuser1)) {
 
-            return view('auth.login',['paincorrect' => 'نام کاربری اشتباه است']);
+            return view('auth.login',['paincorrect' => 'username is incorrect']);
 
         }
 
-        return view('auth.login',['usincorrect' => 'نام کاربری و رمز عبور اشتباه است']);
+        return view('auth.login',['usincorrect' => 'username & password incorrect']);
 
     }
 }
