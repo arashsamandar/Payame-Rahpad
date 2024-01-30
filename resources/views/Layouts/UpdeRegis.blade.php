@@ -6,31 +6,10 @@
     <meta name="viewport" content="width=330px, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf" value="{{ csrf_token() }}">
-    <link rel="stylesheet" href="{{asset('css\mainpage.css')}}" />
-    <link rel="stylesheet" href="{{asset('css\footer.css')}}" />
+    @extends('Layouts.headerCss')
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/black-tie/jquery-ui.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-            <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
-            <script src="{{asset('js\rejs.js')}}"></script>
-            <script src="{{asset('js\cropit.js')}}"></script>
-            <script>$(function () {function readURL(input) {if (input.files && input.files[0]) {var reader = new FileReader();reader.onload = function (e) {$('#defaultimage').attr('src', e.target.result);};reader.readAsDataURL(input.files[0]);}}$("#userimage").change(function(){readURL(this);});});$(function() {$('.image-editor').cropit();$('form').submit(function() {var imageData = $('.image-editor').cropit('export');$('.hidden-image-data').val(imageData);var formValue = $(this).serialize();$('#result-data').text(formValue);});});</script>
-    <title>
-        @if(isset($page_title))
-            {{$page_title}}
-        @else
-            پیام رهپاد
-        @endif
-    </title>
     <link rel="stylesheet" href="{{asset('css\datepicker.css')}}" />
     <style>
-        @font-face{
-            font-family:'Yekan';
-            src:url("{{asset('fonts/BYekan.ttf')}}") format('truetype'),
-            url("{{asset('fonts/BYekan.eot?#')}}") format('eot'),
-            url("{{asset('fonts/BYekan.woff')}}") format('woff');}
-
         .btn-info {
             background-color: #002A39 !important;
         }
@@ -68,27 +47,39 @@
             word-wrap: break-word;
         }
     </style>
-    <link rel="stylesheet" href="{{asset('css\header.css')}}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+    <script src="{{asset('js\rejs.js')}}"></script>
+    <script src="{{asset('js\cropit.js')}}"></script>
+    <script>$(function () {function readURL(input) {if (input.files && input.files[0]) {var reader = new FileReader();reader.onload = function (e) {$('#defaultimage').attr('src', e.target.result);};reader.readAsDataURL(input.files[0]);}}$("#userimage").change(function(){readURL(this);});});$(function() {$('.image-editor').cropit();$('form').submit(function() {var imageData = $('.image-editor').cropit('export');$('.hidden-image-data').val(imageData);var formValue = $(this).serialize();$('#result-data').text(formValue);});});</script>
+    <title>
+        @if(isset($page_title))
+            {{$page_title}}
+        @else
+            پیام رهپاد
+        @endif
+    </title>
 </head>
-<body style="text-align: right;font-family: Yekan;margin: 0;padding: 0;height:100%;width: 100%;">
+<body style="margin: 0;padding: 0;height:100%;width: 100%;">
 
 <div class="containss">
 
     @if(Auth::user() || Auth::guard('admin')->check())
 
         <div class="container">
-            <div class="dropdown" style="position: absolute;left: 20px;top:30px;">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><figure>
+            <div class="dropdown" style="position: absolute;right: 20px;top:30px;">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 
                         @if(Auth::guard('admin')->check())
-                            <img src="{{asset('images/default1.jpg')}}" class="ThisUserImage" /><br>
-                            <span class="glyphicon glyphicon-menu-hamburger ThisuserNameAndFamily"> {{\App\Http\Controllers\AdminNameController::adminName()}} {{\App\Http\Controllers\AdminNameController::adminFamily()}} </span></figure></button>
-                            </figure></button>
+                            <img alt="user image" src="{{asset('images/default1.jpg')}}" class="ThisUserImage" /><br>
+                            <span class="glyphicon glyphicon-menu-hamburger ThisuserNameAndFamily"> {{\App\Http\Controllers\AdminNameController::adminName()}} {{\App\Http\Controllers\AdminNameController::adminFamily()}} </span></button>
+                            </button>
                         @elseif(Auth::user())
                             @if(Auth::user()->hasOne('App\UserImages','user_id','id')->first())
-                                <img class="ThisUserImage" src="{{ route('userimage',['id' => Auth::user()->id  ])}}" /><br>
+                                <img alt="user image" class="ThisUserImage" src="{{ route('userimage',['id' => Auth::user()->id  ])}}" /><br>
                             @else
-                                <img src="{{asset('images/default1.jpg')}}" class="ThisUserImage" /><br>
+                                <img alt="user image" src="{{asset('images/default1.jpg')}}" class="ThisUserImage" /><br>
                             @endif
                         @endif
                 @if(Auth::user() && !Auth::guard('admin')->check())
@@ -128,7 +119,7 @@
         </div>
     @endif
 
-<div dir="rtl" id="header">
+<div id="header">
     <div class="treedash" onclick="openNav()">&#9776;</div>
     <div id="prlogo"> <img src="{{asset('images/pr.png')}}" class="sitelogo" /></div>
 
