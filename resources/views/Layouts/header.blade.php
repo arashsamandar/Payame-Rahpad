@@ -9,40 +9,28 @@
     <meta name="description" content=" ارائه دهنده کلیه خدمات انتشار آگهی نامه های تخصصی در حوزه های فناوری اطلاعات، عمران، مدیریت شهری و ..." />
     <meta name="viewport" content="width=330px, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
-    <link rel="stylesheet" href="{{asset('css\header.css')}}" />
-    <link rel="stylesheet" href="{{asset('css\mainpage.css')}}" />
-    <link rel="stylesheet" href="{{asset('css\footer.css')}}" />
+    @extends('Layouts.headerCss')
     <style type="text/css">
-        @font-face{
-            font-family:'Yekan';
-            src:url("{{asset('fonts/BYekan.ttf')}}") format('truetype'),
-            url("{{asset('fonts/BYekan.eot?#')}}") format('eot'),
-            url("{{asset('fonts/BYekan.woff')}}") format('woff');}
-
         .carousel-caption {
             top: 82%;
             right: 0;
             bottom: auto;
         }
     </style>
-
     <script
             src="http://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&amp;language=fa-IR&key=AIzaSyBPE7WWdaSiKs5_qtd4U7agoJ1jmCJ6XbE">
     </script>
 
 </head>
-<body dir="rtl" style="text-align: right;font-family: Yekan;margin: 0;padding: 0;width: 100%;">
+<body style="margin: 0;padding: 0;width: 100%;">
 
 @if(Auth::user() || Auth::guard('admin')->check())
-
     <div class="container">
-        <div class="dropdown" style="position: absolute;left: 20px;top:30px;">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><figure>
-
-                    @if(Auth::guard('admin')->check())
-                        <img src="{{asset('images/default1.jpg')}}" class="ThisUserImage" /><br>
-                        <span class="glyphicon glyphicon-menu-hamburger ThisuserNameAndFamily"> {{\App\Http\Controllers\AdminNameController::adminName()}} {{\App\Http\Controllers\AdminNameController::adminFamily()}} </span></figure></button>
+        <div class="dropdown" style="position: absolute;right: 20px;top:30px;">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                @if(Auth::guard('admin')->check())
+                    <img alt="adminImage" src="{{asset('images/default1.jpg')}}" class="ThisUserImage" /><br>
+                    <span class="glyphicon glyphicon-menu-hamburger ThisuserNameAndFamily"> {{\App\Http\Controllers\AdminNameController::adminName()}} {{\App\Http\Controllers\AdminNameController::adminFamily()}} </span></button>
             </button>
             @elseif(Auth::user())
                 @if(Auth::user()->hasOne('App\UserImages','user_id','id')->first())
@@ -135,8 +123,6 @@
 @yield('contents')
 
 @extends('Layouts.footer')
-
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
