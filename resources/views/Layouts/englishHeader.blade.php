@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href={{asset('css/englishStyle.css')}}>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href={{asset('css/englishStyle.css')}}>
+    <script>
+        $(document).ready(function(){
+            $('.dropdown').hover(function() {
+                $(this).find('.dropdown-menu').stop(true, true).delay(0).fadeIn(500);
+            }, function() {
+                $(this).find('.dropdown-menu').stop(true, true).delay(0).fadeOut(500);
+            });
+        });
+    </script>
     <title>Header</title>
 </head>
 <body>
@@ -31,7 +40,16 @@
         <nav class="navbar navbar-expand-lg ftco-navbar-light" id="ftco-navbar">
             <div class="container user-image">
                 <div class="order-lg-last">
-                        <img src="{{asset('images/default1.jpg')}}" class="img-user-image" />
+                    <div class="dropdown">
+                        <button class="btn btn-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="{{asset('images/default1.jpg')}}" class="img-user-image" alt="User Image"><br/>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Option 1</a>
+                            <a class="dropdown-item" href="#">Option 2</a>
+                            <a class="dropdown-item" href="#">Option 3</a>
+                        </div>
+                    </div>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fa fa-bars"></span> Menu
@@ -48,7 +66,13 @@
         </nav>
         <!-- END nav -->
         <div style="margin-top: 200px">
-            your content goes here...
+            your content goes here...<br/>
+            @if(Auth::user())
+                <h4>Hello User : {{Auth::user()->name}}-{{Auth::user()->family}}</h4>
+            @elseif(!Auth::user())
+                <h4>No User Detected</h4>
+            @endif
+            {{----------------------------      Here Goes My User Icn       --------------------------------}}
         </div>
     </div>
 </section>
