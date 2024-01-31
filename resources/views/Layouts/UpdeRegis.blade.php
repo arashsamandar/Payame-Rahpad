@@ -66,7 +66,6 @@
 <div class="containss">
 
     @if(Auth::user() || Auth::guard('admin')->check())
-
         <div class="container">
             <div class="dropdown" style="position: absolute;right: 20px;top:30px;">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

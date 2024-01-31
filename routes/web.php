@@ -1,5 +1,13 @@
 <?php
 
+// ---------------------------------------------------------- Start Test New UI ------------------------------------------------------
+
+Route::get('/englishHeader',function(){
+    return view('Layouts.englishHeader');
+});
+
+// -------------------------------------------------------------- End Tests ----------------------------------------------------------
+
 Route::get('/','PageManager@index')->name('home');
 Route::get('/home','PageManager@index')->name('home');
 
