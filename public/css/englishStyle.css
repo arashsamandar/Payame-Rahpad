@@ -216,3 +216,13 @@ h1, h2, h3, h4, h5,
         box-shadow: 3px 3px 5px grey;
     }
 }
+/******************************************** Media ******************************************************/
+.footer {
+    background: #fff !important;
+    color: black;
+    height: 83px;
+    margin-top: 100px;
+    -webkit-box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34);
+    -moz-box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34);
+    box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34);
+}

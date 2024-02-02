@@ -94,15 +94,14 @@
                 </div>
             </div>
         </nav>
-        <!-- END nav -->
-        <div style="margin-top: 200px">
-            your content goes here...<br/>
-            @if(Auth::user())
-                <h4>Hello User : {{Auth::user()->name}}-{{Auth::user()->family}}</h4>
-            @elseif(!Auth::user())
-                <h4>No User Detected</h4>
-            @endif
-            {{----------------------------      Here Goes My User Icn       --------------------------------}}
+        <!-- END nav - Still Ftco-section -->
+        <div style="height: 500px">
+            here goes contents
+        </div>
+        <div class="footer">
+            <div>
+                here goes your footer as of now
+            </div>
         </div>
     </div>
 </section>

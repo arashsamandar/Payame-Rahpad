@@ -21,7 +21,6 @@
                                 </div>
                             </a>
                         </figure>
-
                     @endfor
                 @endif
                 <!-- Start Slider Default Pictures -->
