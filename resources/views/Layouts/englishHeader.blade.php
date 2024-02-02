@@ -19,7 +19,6 @@
             });
         });
     </script>
-    <title>Header</title>
 </head>
 <body>
 <section class="ftco-section">
@@ -95,9 +94,7 @@
             </div>
         </nav>
         <!-- END nav - Still Ftco-section -->
-        <div style="height: 500px">
-            here goes contents
-        </div>
+        @yield('ContentsOfTheSite')
         <div class="footer">
             <div>
                 here goes your footer as of now

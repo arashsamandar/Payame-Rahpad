@@ -6,6 +6,10 @@ Route::get('/englishHeader',function(){
     return view('Layouts.englishHeader');
 });
 
+Route::get('/englishMain',function(){
+   return view('Layouts.app2');
+});
+
 // -------------------------------------------------------------- End Tests ----------------------------------------------------------
 
 Route::get('/','PageManager@index')->name('home');

@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0dbd0e0-3a99-4867-a59b-7543e5b75998" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/first-favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Layouts/app2.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/englishStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/englishStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/first-favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/englishHeader.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/englishHeader.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +165,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;partOne-changeUI&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;tests&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;E:/Programmer-Codes/Laravel/Payame-Rahpad-Two-ui/Payame-Rahpad/public&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -431,7 +437,8 @@
       <workItem from="1706525994513" duration="18328000" />
       <workItem from="1706606251685" duration="677000" />
       <workItem from="1706647671005" duration="33989000" />
-      <workItem from="1706863826404" duration="7226000" />
+      <workItem from="1706863826404" duration="8016000" />
+      <workItem from="1706879488368" duration="4305000" />
     </task>
     <servers />
   </component>
