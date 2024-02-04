@@ -10,6 +10,19 @@ Route::get('/englishMain',function(){
    return view('Layouts.app2');
 });
 
+Route::get('/jsElement',function(){
+   return view('Layouts.app3');
+});
+
+Route::get('/arashSamandar',function(){
+    return response()->json(['message'=>'Hello Arash From Ajax Php Succesfull']);
+})->name('arashSamandar');
+
+Route::get('/getImages',function(){
+    $myImagesArray = \App\Http\Controllers\ImageController::return_global_imageIterator_bellowSlider_forAjax();
+    return response()->json(['dataArray'=>$myImagesArray]);
+})->name('GetImagesForAjax');
+
 // -------------------------------------------------------------- End Tests ----------------------------------------------------------
 
 Route::get('/','PageManager@index')->name('home');

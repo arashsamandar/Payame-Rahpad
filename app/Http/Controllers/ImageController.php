@@ -14,7 +14,7 @@ class ImageController extends Controller
 {
     public function __construct(Request $request)
     {
-        $this->request = $request;
+//        $this->request = $request; ----------------- In Case Of ERROR Uncomment Me ---------------------------------
     }
 
     public function showimage($id) {
@@ -139,6 +139,20 @@ class ImageController extends Controller
             }
         }
         return $arr;
+    }
+
+    // ------------------------------------------------ New Ones After Methadone 1402/11/15 ----------------------------------------------------
+
+    public static function return_global_imageIterator_bellowSlider_forAjax(){
+        return self::checkContent_Image_Number_Bellow_Slider();
+    }
+
+    public static function ajaxTestsOne(){
+        $myArray = ['arash','salamander','havij'];
+        return $myArray;
+    }
+    public static function testAjax(){
+        return self::ajaxTestsOne();
     }
 
 }

@@ -66,8 +66,7 @@
 
         <figure class="prImageNumberTwo">
             <a href="{{route('ShahrPaad')}}"><img src="{{asset('images/Atehran.jpg')}}" alt="پروژه شهرپاد" title="شهرپاد به یاری فعالان در حوزه مدیریت شهری و روستایی کشور می شتابد. اطلاعات کلیه ارائه دهندگان محصولات و خدمات در حوزه مدیریت شهری و روستایی را جمع آوری کرده و بدون واسطه در اختیار کلیه نیازمندان به این اطلاعات قرار می دهد." class="img-responsive" /></a>
-            <figcaption class="Images_figCaption">پروژه شهرپاد
-            </figcaption>
+            <figcaption class="Images_figCaption">پروژه شهرپاد</figcaption>
         </figure>
         <figure class="prImageNumberThree">
             <a href="{{route('UrbanManagementAdd')}}"><img src="{{asset('images/zolo.jpg')}}" alt="آگهی نامه مدیریت شهری" title="چاپ و انتشار آگهی نامه ای در حوزه مدیریت شهری و خدمات مرتبط" class="img-responsive" /></a>
