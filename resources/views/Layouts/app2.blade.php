@@ -96,6 +96,11 @@
         </div>
     </div>
 </div>
+
+<div id="test" style="margin-top: 20px">
+    {{--  Add Dynamic Images In Here
+          They could all have "col-md-4 as there class and `image-container` & 'caption` class as their image and Caption--}}
+</div>
 <script>
     {{--  ---------------------------- For Lazy Load PlaceHolder Images In Sliders  ----------------------------}}
     window.onload = function() {

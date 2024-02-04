@@ -13,7 +13,7 @@
 </head>
 <body>
 <div id="myDiv">
-    <div class="row">
+    <div class="row" style="margin-top: 10px">
         <div class="col-md-4">
             <div class="image-container">
                 <img src="{{asset('images/none.jpg')}}" alt="arashTalentOne" />
@@ -35,51 +35,54 @@
     </div>
 </div>
 
-{{--<script>--}}
-{{--    window.onload = async function (){--}}
-{{--          await $.ajax({--}}
-{{--            type:'GET',--}}
-{{--            url:"{{URL::route('GetImagesForAjax')}}",--}}
-{{--            success:function (data){--}}
-{{--                // ----------------------- here goes adding images and columns ------------------------------}}
-{{--                let row = document.querySelector('.row');--}}
+<script>
+    window.onload = async function (){
+          await $.ajax({
+            type:'GET',
+            url:"{{URL::route('GetImagesForAjax')}}",
+            success:function (data){
+                // ----------------------- here goes adding images and columns ----------------------------
+                let row = document.querySelector('.row');
 
-{{--                let id = data.dataArray[0];--}}
-{{--                let title = data.dataArray[1];--}}
-{{--                let brief = data.dataArray[2]--}}
-{{--                let images = data.dataArray[3];--}}
+                let id = data.dataArray[0];
+                let title = data.dataArray[1];
+                let brief = data.dataArray[2]
+                let images = data.dataArray[3];
 
-{{--                for(let i=0; i < images.length ; i++){--}}
+                for(let i=0; i < images.length ; i++){
+                    let divElement = document.createElement('div');
+                    divElement.className = 'col-md-4';
 
-{{--                    let figure = document.createElement('figure');--}}
-{{--                    figure.className = 'col-md-3';--}}
-{{--                    figure.style.position = 'relative';--}}
+                    let innnerDiv = document.createElement('div');
+                    innnerDiv.className = 'image-container';
 
-{{--                    let img = new Image();--}}
-{{--                    img.src = images[i];--}}
-{{--                    img.alt = title[i];--}}
-{{--                    img.className = 'ImageNumberOne';--}}
-{{--                    figure.appendChild(img);--}}
+                    let img = new Image();
+                    img.src = images[i];
+                    img.alt = title[i];
+                    innnerDiv.appendChild(img);
 
-{{--                    let figCaption = document.createElement('figcaption');--}}
-{{--                    figCaption.innerText = brief[i];--}}
-{{--                    figCaption.className = 'Images_figCaption';--}}
-{{--                    figure.append(figCaption);--}}
+                    let captionDiv = document.createElement('div');
+                    captionDiv.innerText = brief[i];
+                    captionDiv.className = 'caption';
+                    innnerDiv.appendChild(captionDiv);
 
-{{--                    // you must also add some description or `brief` from line 26,27--}}
+                    divElement.appendChild(innnerDiv);
 
-{{--                    if((i + 1) % 3 === 0 && i !== data.length - 1) {--}}
-{{--                        let newRow = document.createElement('div');--}}
-{{--                        newRow.className = 'row';--}}
-{{--                        row.parentNode.insertBefore(newRow, row.nextSibling);--}}
-{{--                        row = newRow;--}}
-{{--                    }--}}
+                    row.appendChild(divElement);
 
-{{--                    // row.appendChild(figure);--}}
-{{--                }--}}
-{{--            }--}}
-{{--        });--}}
-{{--    }--}}
-{{--</script>--}}
+                    if((i + 1) % 3 === 0 && i !== images.length - 1) {
+                        let newRow = document.createElement('div');
+                        newRow.className = 'row';
+                        row.parentNode.insertBefore(newRow, row.nextSibling);
+                        row = newRow;
+                    }
+
+                    row.appendChild(divElement);
+
+                }
+            }
+        });
+    }
+</script>
 </body>
 </html>
