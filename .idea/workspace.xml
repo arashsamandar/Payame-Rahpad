@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0dbd0e0-3a99-4867-a59b-7543e5b75998" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/loqQuality-Placeholder.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/arashNewNew.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/englishStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/englishStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/app2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/app2.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/englishHeader.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/englishHeader.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,9 +164,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "partOne-changeUI",
+    "git-widget-placeholder": "tests",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/Programmer-Codes/Laravel/Payame-Rahpad-Two-ui/Payame-Rahpad/public",
+    "last_opened_file_path": "E:/Programmer-Codes/Laravel/Payame-Rahpad-Two-ui/Payame-Rahpad/public/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -174,8 +179,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Programmer-Codes\Laravel\Payame-Rahpad-Two-ui\Payame-Rahpad\public" />
       <recent name="E:\Programmer-Codes\Laravel\Payame-Rahpad-Two-ui\Payame-Rahpad\public\images" />
+      <recent name="E:\Programmer-Codes\Laravel\Payame-Rahpad-Two-ui\Payame-Rahpad\public" />
       <recent name="E:\Laravel_Projects\pr\public\images" />
       <recent name="E:\Laravel_Projects\pr\public\css\localcss" />
       <recent name="E:\Laravel_Projects\pr\public\css" />
@@ -433,7 +438,7 @@
       <workItem from="1706647671005" duration="33989000" />
       <workItem from="1706863826404" duration="8016000" />
       <workItem from="1706879488368" duration="4305000" />
-      <workItem from="1706948067996" duration="325000" />
+      <workItem from="1706948067996" duration="9381000" />
     </task>
     <servers />
   </component>

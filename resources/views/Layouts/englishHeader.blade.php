@@ -25,7 +25,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-5">
-                <img src="{{asset('images/ArashLogo.png')}}" style="width: 291px;height: 54" alt="Company Logo" />
+                <img src="{{asset('images/ArashLogo.png')}}" class="arashLogo" alt="Company Logo" />
             </div>
         </div>
     </div>
