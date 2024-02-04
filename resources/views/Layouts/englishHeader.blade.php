@@ -26,7 +26,6 @@
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-5">
                 <img src="{{asset('images/ArashLogo.png')}}" class="arashLogo" alt="Company Logo Here" width="291" height="54" />
-                {{--        new size to logo is confirmed again in the push        --}}
             </div>
         </div>
     </div>

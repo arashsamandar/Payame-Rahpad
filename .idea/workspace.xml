@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b0dbd0e0-3a99-4867-a59b-7543e5b75998" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/englishHeader.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/englishHeader.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +160,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "partOne-changeUI",
+    "git-widget-placeholder": "tests",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "E:/Programmer-Codes/Laravel/Payame-Rahpad-Two-ui/Payame-Rahpad/public/images",
     "node.js.detected.package.eslint": "true",
@@ -434,7 +435,7 @@
       <workItem from="1706863826404" duration="8016000" />
       <workItem from="1706879488368" duration="4305000" />
       <workItem from="1706948067996" duration="9381000" />
-      <workItem from="1707035754719" duration="1679000" />
+      <workItem from="1707035754719" duration="2328000" />
     </task>
     <servers />
   </component>
