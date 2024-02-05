@@ -77,20 +77,26 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="image-container">
-                    <img src="{{asset('images/none.jpg')}}" alt="arashTalentOne" />
-                    <div class="caption">Caption 1</div>
+                    <a href="#">
+                        <img src="{{asset('images/none.jpg')}}" alt="arashTalentOne" />
+                        <div class="caption">Caption 1</div>
+                    </a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="image-container">
-                    <img src="{{asset('images/ntwo.jpg')}}" alt="arashTalentOne" />
-                    <div class="caption">Caption 2</div>
+                    <a href="#">
+                        <img src="{{asset('images/ntwo.jpg')}}" alt="arashTalentOne" />
+                        <div class="caption">Caption 2</div>
+                    </a>
                 </div>
             </div>
             <div class="col-md-4 lastOne">
                 <div class="image-container">
+                    <a href="#">
                     <img src="{{asset('images/nthree.jpg')}}" alt="arashTalentOne" />
                     <div class="caption">Caption 3</div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -127,6 +133,7 @@
                 let title = data.dataArray[1];
                 let brief = data.dataArray[2]
                 let images = data.dataArray[3];
+                let addresses = data.dataArray[4];
                 // images = images.concat(data.dataArray[3]);
                 // console.log(images.length);
 
@@ -136,16 +143,21 @@
 
                     let innnerDiv = document.createElement('div');
                     innnerDiv.className = 'image-container';
+                    let aTag = document.createElement('a');
+                    {{--aTag.setAttribute('href',{{route('page_caller',['page_address' => addreses[i]])}});--}}
+                    aTag.setAttribute('href', '{{ url('/home/') }}' + '/' + title[i]);
 
                     let img = new Image();
                     img.src = images[i];
                     img.alt = title[i];
-                    innnerDiv.appendChild(img);
+                    aTag.appendChild(img);
 
                     let captionDiv = document.createElement('div');
                     captionDiv.innerText = brief[i];
                     captionDiv.className = 'caption';
-                    innnerDiv.appendChild(captionDiv);
+                    aTag.appendChild(captionDiv);
+
+                    innnerDiv.appendChild(aTag);
 
                     divElement.appendChild(innnerDiv);
 
