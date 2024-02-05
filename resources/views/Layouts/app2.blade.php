@@ -87,7 +87,7 @@
                     <div class="caption">Caption 2</div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 lastOne">
                 <div class="image-container">
                     <img src="{{asset('images/nthree.jpg')}}" alt="arashTalentOne" />
                     <div class="caption">Caption 3</div>
@@ -97,13 +97,14 @@
     </div>
 </div>
 
-<div id="test" style="margin-top: 20px">
-    {{--  Add Dynamic Images In Here
-          They could all have "col-md-4 as there class and `image-container` & 'caption` class as their image and Caption--}}
+<div id="test" style="margin-top: 20px;">
+    <div class="row arash">
+
+    </div>
 </div>
 <script>
-    {{--  ---------------------------- For Lazy Load PlaceHolder Images In Sliders  ----------------------------}}
-    window.onload = function() {
+    {{--  ---------------------------- Start `Lazy Load PlaceHolder Images` In Sliders  ----------------------------}}
+    window.onload = async function() {
         var images = document.querySelectorAll(".carousel-item img.loaded");
         images.forEach(function(img) {
             img.previousElementSibling.style.opacity = 0; // Hide the placeholder
@@ -113,6 +114,55 @@
         var placeholders = document.querySelectorAll('.placeholder');
         placeholders.forEach(function(placeholder) {
             placeholder.style.display = 'none'; // Hide the placeholder
+        });
+    {{--  ----------------------------------- Start `Ajax Dynamic Images Load`  -----------------------------------}}
+        await $.ajax({
+            type:'GET',
+            url:"{{URL::route('GetImagesForAjax')}}",
+            success:function (data){
+                // ----------------------- here goes adding images and columns ----------------------------
+                let row = document.querySelector('.row.arash');
+
+                let id = data.dataArray[0];
+                let title = data.dataArray[1];
+                let brief = data.dataArray[2]
+                let images = data.dataArray[3];
+                // images = images.concat(data.dataArray[3]);
+                // console.log(images.length);
+
+                for(let i=0; i < images.length ; i++){
+                    let divElement = document.createElement('div');
+                    divElement.className = 'col-md-4';
+
+                    let innnerDiv = document.createElement('div');
+                    innnerDiv.className = 'image-container';
+
+                    let img = new Image();
+                    img.src = images[i];
+                    img.alt = title[i];
+                    innnerDiv.appendChild(img);
+
+                    let captionDiv = document.createElement('div');
+                    captionDiv.innerText = brief[i];
+                    captionDiv.className = 'caption';
+                    innnerDiv.appendChild(captionDiv);
+
+                    divElement.appendChild(innnerDiv);
+
+                    row.appendChild(divElement);
+
+                    if((i + 1) % 3 === 0 && i !== images.length - 1) {
+                        let newRow = document.createElement('div');
+                        newRow.className = 'row arash';
+                        newRow.style.marginTop = '20px';
+                        row.parentNode.insertBefore(newRow, row.nextSibling);
+                        row = newRow;
+                    }
+
+                    // row.appendChild(divElement);
+
+                }
+            }
         });
     };
 </script>

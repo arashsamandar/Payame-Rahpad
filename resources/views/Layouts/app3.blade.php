@@ -13,8 +13,8 @@
 </head>
 <body>
 <div id="myDiv">
-    <div class="row" style="margin-top: 10px">
-        <div class="col-md-4">
+    <div id="firstDiv" class="row" style="margin-top: 10px">
+        <div class="col-md-4" >
             <div class="image-container">
                 <img src="{{asset('images/none.jpg')}}" alt="arashTalentOne" />
                 <div class="caption">Caption 1</div>

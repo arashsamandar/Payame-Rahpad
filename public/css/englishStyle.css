@@ -7,46 +7,56 @@ body {
     line-height: 1.8;
     font-weight: normal;
     background: #fafafa;
-    color: gray; }
+    color: gray;
+}
 
 a {
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
     transition: .3s all ease;
-    color: #fc7fb2; }
+    color: #fc7fb2;
+}
 a:hover, a:focus {
     text-decoration: none !important;
     outline: none !important;
     -webkit-box-shadow: none;
-    box-shadow: none; }
+    box-shadow: none;
+}
 
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
     line-height: 1.5;
     font-weight: 400;
-    color: #000; }
+    color: #000;
+}
 
 .bg-primary {
-    background: #007bff !important; }
+    background: #007bff !important;
+}
 
 .ftco-section {
-    padding: 7em 0; }
+    padding: 7em 0;
+}
 
 .ftco-no-pt {
-    padding-top: 0; }
+    padding-top: 0;
+}
 
 .ftco-no-pb {
-    padding-bottom: 0; }
+    padding-bottom: 0;
+}
 
 .heading-section {
     font-family: Azonix;
     font-size: 28px;
-    color: #000; }
+    color: #000;
+}
 
 .img {
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center; }
+    background-position: center center;
+}
 
 .ftco-navbar-light {
     background: #fff !important;
@@ -56,7 +66,9 @@ h1, h2, h3, h4, h5,
     border-radius: 5px;
     -webkit-box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34);
     -moz-box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34);
-    box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34); }
+    box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34);
+}
+
 @media (max-width: 991.98px) {
     .ftco-navbar-light {
         background: #000 !important;
@@ -94,7 +106,8 @@ h1, h2, h3, h4, h5,
     font-weight: 400;
     color: #333333;
     position: relative;
-    opacity: 1 !important; }
+    opacity: 1 !important;
+}
 .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover {
     color: #007bff;
 }
@@ -229,6 +242,17 @@ h1, h2, h3, h4, h5,
     }
     .carousel-inner {
         min-height: 300px !important;
+    }
+    .col-md-4 {
+        width: 50%;
+    }
+    .col-md-4.lastOne {
+        display: none;
+    }
+}
+@media screen and (max-width: 500px){
+    .carousel-inner {
+        min-height: 230px !important;
     }
 }
 /******************************************** Footer ******************************************************/
