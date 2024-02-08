@@ -14,7 +14,12 @@ class ImageController extends Controller
 {
     public function __construct(Request $request)
     {
-//        $this->request = $request; ----------------- In Case Of ERROR Uncomment Me ---------------------------------
+        $this->request = $request;
+    }
+
+    public function returnImagesForAjax(){
+        $myImagesArray = \App\Http\Controllers\ImageController::return_global_imageIterator_bellowSlider_forAjax();
+        return response()->json(['dataArray'=>$myImagesArray]);
     }
 
     public function showimage($id) {

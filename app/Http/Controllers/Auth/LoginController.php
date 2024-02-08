@@ -11,16 +11,6 @@ use App\Logs;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
 
     use AuthenticatesUsers;
 
@@ -34,7 +24,7 @@ class LoginController extends Controller
     }
 
     public function showLoginForm() {
-        return view('auth.login',['page_title' => 'ورود به سایت']);
+        return view('auth.loginEnglish',['page_title' => 'Enter Application']);
     }
 
     public function login(Request $request, Logs $logs)
@@ -45,8 +35,8 @@ class LoginController extends Controller
 
 
         $message = array(
-            'username.required' => 'نام کاربری را وارد کنید',
-            'password.required' => 'رمز عبور را وارد کنید'
+            'username.required' => 'Username Is Required',
+            'password.required' => 'Password Is Required'
         );
 
 
@@ -107,11 +97,11 @@ class LoginController extends Controller
 
         } elseif(empty($myuser1)) {
 
-            return view('auth.login',['paincorrect' => 'username is incorrect']);
+            return view('auth.loginEnglish',['paincorrect' => 'username is incorrect']);
 
         }
 
-        return view('auth.login',['usincorrect' => 'username & password incorrect']);
+        return view('auth.loginEnglish',['usincorrect' => 'username & password incorrect']);
 
     }
 }

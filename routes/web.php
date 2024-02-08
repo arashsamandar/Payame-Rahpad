@@ -1,29 +1,28 @@
 <?php
 
-// ---------------------------------------------------------- Start Test New UI ------------------------------------------------------
+// ---------------------------------------------------- Started Adding After 1402/11/00 ----------------------------------------------
 
 Route::get('/englishHeader',function(){
     return view('Layouts.englishHeader');
-});
-
-Route::get('/englishMain',function(){
-   return view('Layouts.app2');
-});
+})->name('Test_english_header');
 
 Route::get('/jsElement',function(){
-   return view('Layouts.app3');
+    return view('Layouts.app3');
+})->name('Test_js_ajax');
+
+Route::get('/farsiPage',function(){
+    return view('Layouts.app');
+})->name('Farsi_landing_page');
+
+Route::get('/englishRegister',function (){
+   return view('auth.registerEnglish');
 });
 
-Route::get('/arashSamandar',function(){
-    return response()->json(['message'=>'Hello Arash From Ajax Php Succesfull']);
-})->name('arashSamandar');
+// ----------------------------------------------------------- End Tests Routes -----------------------------------------------------
 
-Route::get('/getImages',function(){
-    $myImagesArray = \App\Http\Controllers\ImageController::return_global_imageIterator_bellowSlider_forAjax();
-    return response()->json(['dataArray'=>$myImagesArray]);
-})->name('GetImagesForAjax');
+Route::get('/getImages','ImageController@returnImagesForAjax')->name('GetImagesForAjax');
 
-// -------------------------------------------------------------- End Tests ----------------------------------------------------------
+// -------------------------------------------------------------- Start Program ------------------------------------------------------
 
 Route::get('/','PageManager@index')->name('home');
 Route::get('/home','PageManager@index')->name('home');

@@ -54,7 +54,7 @@ class PageManager extends Controller
 
     public function index()
     {
-        return view('Layouts.app');
+        return view('Layouts.app2');
     }
 
     public function pagenotfound() {
