@@ -392,7 +392,7 @@ class AjaxMessageController extends Controller
     }
 
     public static function Count_unread_user_message() {
-        $user_messages_number = Messages::where(['user_seen' => 0])->get()->count();
+        $user_messages_number = Messages::where(['user_id'=>\Auth::user()->id,'user_seen' => 0])->count();
         return $user_messages_number;
     }
 

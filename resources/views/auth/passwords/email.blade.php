@@ -1,6 +1,5 @@
-@extends('Layouts.app')
-
-@section('content')
+@extends('Layouts.englishHeader')
+@section('ContentsOfTheSite')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

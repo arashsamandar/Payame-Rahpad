@@ -22,6 +22,7 @@ class CreateUserMessageAndConfirmTable extends Migration
             $table->string('user_message','250')->nullable();
             $table->string('admin_message','250')->nullable();
             $table->boolean('admin_seen')->nullable();
+            $table->boolean('user_seen')->nullable();
         });
     }
 

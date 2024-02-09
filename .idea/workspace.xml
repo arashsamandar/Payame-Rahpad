@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0dbd0e0-3a99-4867-a59b-7543e5b75998" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/public/css/cropIt.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/ImageCropShow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxMessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxMessageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/arash.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/UpdeRegis.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/UpdeRegis.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/englishHeader.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/englishHeader.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/headerCssFiles.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/headerCssFiles.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/registerEnglish.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/registerEnglish.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2018_07_08_005836_create_user_message_and_confirm_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_07_08_005836_create_user_message_and_confirm_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/englishStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/englishStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -455,6 +451,7 @@
       <workItem from="1707124705842" duration="22645000" />
       <workItem from="1707330740186" duration="846000" />
       <workItem from="1707387126137" duration="18284000" />
+      <workItem from="1707476733283" duration="2566000" />
     </task>
     <servers />
   </component>
