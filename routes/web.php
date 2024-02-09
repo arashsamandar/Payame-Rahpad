@@ -14,10 +14,6 @@ Route::get('/farsiPage',function(){
     return view('Layouts.app');
 })->name('Farsi_landing_page');
 
-Route::get('/englishRegister',function (){
-   return view('auth.registerEnglish');
-});
-
 // ----------------------------------------------------------- End Tests Routes -----------------------------------------------------
 
 Route::get('/getImages','ImageController@returnImagesForAjax')->name('GetImagesForAjax');

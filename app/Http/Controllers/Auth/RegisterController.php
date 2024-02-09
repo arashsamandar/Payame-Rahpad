@@ -54,7 +54,7 @@ class RegisterController extends Controller
      */
 
     public function showRegistrationForm() {
-        return view('auth.register');
+        return view('auth.registerEnglish');
     }
 
     protected function validator(array $data)
@@ -62,13 +62,9 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:25',
             'family' => 'required|max:25',
-            'password' => 'required|confirmed',
-            'email' => 'required|email|unique:users',
+            'password' => 'required|max:25|confirmed',
+            'email' => 'required|email|max:40|unique:users',
             'username' => 'required|unique:users',
-            'birth_date' => 'required|date',
-            'national_code' => 'required|unique:users|numeric|max:9999999999',
-            'gender' => 'required|max:4',
-            'cell_phone' => 'required|numeric|max:99999999999',
             'userimage' => 'image|mimes:jpeg,png,jpg,svg|max:6000',
         ],
             [
@@ -80,49 +76,39 @@ class RegisterController extends Controller
                 'userimage.mimes' => 'valid images : jpg jpeg png',
 
                 'family.required' => 'family is required',
+                'family.max' => 'maximum character 25',
 
                 'username.required' => 'username is required',
                 'username.unique' => 'username already taken',
 
-                'birth_date.required' => 'birth-date is required',
-                'birth_date.date' => 'date format is incorrect',
-
-                'national_code.required' => 'national code is neccesary',
-                'national_code.unique' => 'national code already taken',
-                'national_code.max' => 'national code cant be more than 10 characters long',
-                'national_code.numeric' => 'national code cant have symbols or letters',
-
-                'cell_phone.required' => 'phone number is required',
-                'cell_phone.numeric' => 'phone number cant have letters',
-                'cell_phone.max' => 'phone number cant be more than 11 numbers',
-
-                'gender.max' => 'gender cant be more than 4 letters',
-                'gender.required' => 'gender is required',
-
                 'password.required' => 'please enter password',
                 'password.confirmed' => 'password confirmation is wrong',
+                'password.max' => 'maximum character 25',
 
                 'email.required' => 'email address is required',
                 'email.unique' => 'email address already taken',
                 'email.email' => 'not a valid email address',
+                'email.max' => 'maximum character 40'
 
             ]);
     }
 
-    protected function create(array $data)
+    protected function register(Request $request)
     {
+        $data = $request->all();
+
+        $validation = $this->validator($data);
+        if($validation->fails()){
+            return redirect()->back()->withErrors($validation)->withInput();
+        }
+
         $dateTime = Carbon::now();
         $user = User::create([
             'name' => $data['name'],
             'family' => $data['family'],
-            'national_code' => $data['national_code'],
-            'gender' => $data['gender'],
-            'birth_date' => $data['birth_date'],
             'username' =>$data['username'],
             'password' => bcrypt($data['password']),
-            'cell_phone' => $data['cell_phone'],
-            'email' => $data['email'],
-            'created_at_shamsi' => $dateTime->toDateString(),
+            'email' => $data['email']
         ]);
 
         if($this->request->get('image-data')) {
@@ -137,8 +123,6 @@ class RegisterController extends Controller
                 'image' => $final_image,
             ]);
         }
-
-
 
         //_____________________End Saving user image___________________
 

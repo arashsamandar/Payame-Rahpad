@@ -1,0 +1,38 @@
+.btn-info {
+    background-color: #002A39 !important;
+}
+
+.btn-info:hover {
+    background-color: #17a2b8 !important;
+}
+
+.cropit-preview {
+    background-color: #f8f8f8;
+    background-size: cover;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-top: 7px;
+    width: 250px;
+    height: 250px;
+}
+
+.cropit-preview-image-container {
+    cursor: move;
+}
+
+.image-size-label {
+    margin-top: 10px;
+}
+
+#result {
+    margin-top: 10px;
+    width: 900px;
+}
+
+#result-data {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}

@@ -74,7 +74,7 @@
                                     <a class="dropdown-item" href="{{route('update')}}"><span class="fa fa-address-card"><span class="Azonix-style">&nbsp;Edit {{Auth::user()->name}}&nbsp;{{Auth::user()->family}}</span></span></a>
                                 @endif
                                 <a class="dropdown-item" href="{{route('uppass')}}"><span class="fa fa-lock"><span class="Azonix-style">&nbsp;Change Password</span></span></a>
-                                <a class="dropdown-item" href="{{route('logout')}}"><span class="fa fa-window-close"><span class="Azonix-style">&nbsp;Exit</span></span></a>
+                                <a class="dropdown-item" href="{{route('logout')}}" onclick="document.getElementById('logout-form').submit();"><span class="fa fa-window-close"><span class="Azonix-style">&nbsp;Exit</span></span></a>
                             </div>
                         @endif
                     </div>

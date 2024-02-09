@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{asset('css\footer.css')}}" />
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/black-tie/jquery-ui.css" />
     <link rel="stylesheet" href="{{asset('css\datepicker.css')}}" />
-    <title>Document</title>
+    <title>Register</title>
 </head>
 <body>
 
