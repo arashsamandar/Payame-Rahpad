@@ -1,10 +1,13 @@
-@extends('Layouts.englishHeader')
 @include('ajax.updateStudent')
 @include('ajax.addStudent')
 @include('ajax.updatepass')
 @include('ajax.AccessUser')
 @include('ajax.cheangeimage')
-@section('ContentsOfTheSite')
+@extends('Layouts.UpdeRegis')
+
+@section('URS')
+    {{--<script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>--}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
 
         .modal { overflow: auto !important; }
@@ -37,19 +40,19 @@
         </div>
     </div>
     <div class="alert alert-success" id="success-alert" style="display: none">
-        <strong>Operation done with success</strong>
+        <strong>عملیات با موفقیت انجام شد</strong>
     </div>
 
     <div class="alert alert-warning" id="warning-alert" style="display: none">
-        <strong>you do not have access to other users</strong>
+        <strong>شما اجازه ی دسترسی به کاربران دیگر را ندارید</strong>
     </div>
 
     <div class="alert alert-warning" id="create-alert" style="display: none">
-        <strong>you do not have the ability to create a user</strong>
+        <strong>شما جازه ی ایجاد کاربر جدید ندارید</strong>
     </div>
 
     <div class="alert alert-danger" id="remove-alert" style="display: none">
-        <strong>user was deleted</strong>
+        <strong>کاربر حذف شد</strong>
     </div>
     <br>
     <div class="container">
@@ -458,11 +461,20 @@
                         $('#frm-update').find('#namee').val(data.name);
                         $('#frm-update').find('#familyy').val(data.family);
                         $('#frm-update').find('#usernamee').val(data.username);
+                        $('#frm-update').find('#bdd').val(data.birth_date);
+                        $('#frm-update').find('#celll').val(data.cell_phone);
+                        $('#frm-update').find('#nacc').val(data.national_code);
+
                         $('#frm-update').find('#emaill').val(data.email);
+                        $('#frm-update').find('#genderr').val(data.gender);
                         universal = data[0].image;
+
                         if(typeof data[0] !== 'undefined') {
+
                             $('#defaultimagee').attr('src', data[0].image);
+
                         }
+
                         $('#student-update').modal('show');
                     }
                 }
@@ -482,6 +494,7 @@
                 });
                 $('#cropitbaby').submit();
                 universal = $("input#image-data").val();
+//                console.log(universal);
                 $("input#usercropedimagee").val(universal);
             }
 
@@ -517,21 +530,29 @@
                         id : data.id
                     });
                     tr.append($('<td/>',{
+                        html : '<a href="#" class="btn btn-info btn-sm" style="width: 70px;font-size: 12px" id="view" data-id="' + data.id + '">تغییر رمز</a> '
+                        + '<a href="#" class="btn btn-success btn-sm" style="width: 70px;font-size: 12px" id="edit" data-id="' + data.id + '">ویرایش</a> ' +
+                        '<a href="#" class="btn btn-warning btn-sm" style="width: 70px;font-size: 12px" id="chaccess" data-id="' + data.id + '">دسترسی ها</a> ' +
+                        '<a href="#" class="btn btn-danger btn-sm" style="width: 70px;font-size: 12px" id="del" data-id="' + data.id + '">حذف</a>'
+                    })).append($('<td/>',{
+                        text:data.cell_phone
+                    })).append($('<td/>',{
                         text:data.email
+                    })).append($('<td/>',{
+                        text:data.created_at_shamsi
+                    })).append($('<td/>',{
+                        text:data.gender
                     })).append($('<td/>',{
                         text:data.username
                     })).append($('<td/>',{
                         text:data.family
                     })).append($('<td/>',{
                         text:data.name
-                    })).append($('<td/>',{
-                        html : '<a href="#" class="btn btn-info btn-sm" style="width: 70px;font-size: 12px" id="view" data-id="' + data.id + '">Password</a> '
-                            + '<a href="#" class="btn btn-success btn-sm" style="width: 70px;font-size: 12px" id="edit" data-id="' + data.id + '">Edit user</a> ' +
-                            '<a href="#" class="btn btn-warning btn-sm" style="width: 70px;font-size: 12px" id="chaccess" data-id="' + data.id + '">Access</a> ' +
-                            '<a href="#" class="btn btn-danger btn-sm" style="width: 70px;font-size: 12px" id="del" data-id="' + data.id + '">Remove</a>'
                     }));
+
                     $('#userimage').val('');
                     universal = null;
+
                     $('#student-info tr#' + data.id).replaceWith(tr);
                     $('#success-alert').css('display','block');
                     $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
