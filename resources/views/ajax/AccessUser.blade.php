@@ -2,14 +2,12 @@
     .material-switch > input[type="checkbox"] {
         display: none;
     }
-
     .material-switch > label {
         cursor: pointer;
         height: 0px;
         position: relative;
         width: 40px;
     }
-
     .material-switch > label::before {
         background: rgb(0, 0, 0);
         box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -46,19 +44,13 @@
 </style>
 <link rel="stylesheet" href="{{asset('css\progressStyle.css')}}" />
 <script>
-
     function samandar() {
-
-
         $('#user-access')
             .find("input[type=checkbox], input[type=radio]")
             .prop("checked", "")
             .end();
-
-
         $('#user-access').modal('hide');
     }
-
     $(document).on('show.bs.modal','#user-access', function () {
         $("#userimagee").value = "";
         $("input#image-data").cropit('destroy');
@@ -68,7 +60,6 @@
             .prop("checked", "")
             .end();
     });
-
     $(document).on('hidden.bs.modal','#user-access', function () {
         $("#userimagee").value = "";
         $("input#image-data").cropit('destroy');
@@ -78,51 +69,54 @@
             .prop("checked", "")
             .end();
     });
-
 </script>
 
 
 <div id="user-access" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
-        <div class="modal-content" dir="rtl">
+        <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">مدیریت دسترسی ها</h4>
+                <h4 class="modal-title">User's Access Management</h4>
             </div>
-
             <form id="frm-access" role="form" method="post" action="{{ URL::to('student/changaccess') }}">
                 <input type="hidden" name="id" id="id" />
                 <div class="row"  style="clear: both">
                     <div>
                         <div class="form-group">
                             <br>
-                            <div dir="rtl" style="margin-right: 50px;font-size: 18px;">
+                            <div style="margin-right: 50px;font-size: 18px;">
 
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="panel-heading" style="text-align:right;border:1px solid #eee;font-weight: bold">
-                    <span  >نام کاربری : </span>
+                <div class="panel-heading" style="border:1px solid #eee;font-weight: bold">
+                    <span>username : </span>
                     <span id="thisusername"></span>
-                    <span  >| نام : </span>
+                    <br/>
+                    <span >name : </span>
                     <span id="thisuser_name"></span>
                     <span id="thisuser_family"></span>
                 </div>
 
                 <!-- List group -->
-                <ul class="list-group" dir="rtl" style="margin: 30px;">
+                <ul class="list-group" style="margin: 30px;">
                     <li class="list-group-item" style="border: none">
-                        مدیریت محتوا
-                        <div class="material-switch pull-right" style="border: none">
+                        <div style="padding-left: 50px">
+                            content management
+                        </div>
+                        <div class="material-switch" style="border: none">
                             <input id="access_managing_contents" name="access_managing_contents" type="checkbox"/>
                             <label for="access_managing_contents" class="label-warning"></label>
                         </div>
                     </li>
                     <li class="list-group-item" style="border:none">
-                        مدیریت کاربران
-                        <div class="material-switch pull-right" style="border: none;">
+                        <div style="padding-left: 50px">
+                            user management
+                        </div>
+                        <div class="material-switch" style="border: none;">
                             <input id="access_managing_users" name="access_managing_users" type="checkbox"/>
                             <label for="access_managing_users" class="label-danger"></label>
                         </div>
@@ -135,13 +129,13 @@
 
                     <div class="col-md-3">
                         <div class="form-group">
-                            <input type="button" value="بازگشت" onclick="samandar()" class="btn btn-danger btn-block"  />
+                            <input type="button" value="Back" onclick="samandar()" class="btn btn-danger btn-block"  />
                         </div>
                     </div>
 
                     <div class="col-md-3">
                         <div class="form-group">
-                            <input type="submit" name="submit" value="ذخیره" class="btn btn-success btn-block">
+                            <input type="submit" name="submit" value="Save" class="btn btn-success btn-block">
                         </div>
                     </div>
 

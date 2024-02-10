@@ -297,7 +297,7 @@ class AjaxController extends Controller
     }
 
     public function findpage() {
-        return DB::table('users')->selectRaw('users.id,users.name,users.family,users.username,users.gender,users.created_at_shamsi,users.email,users.cell_phone')
+        return DB::table('users')->selectRaw('users.id,users.name,users.family,users.username,users.email')
             ->paginate(5);
     }
 

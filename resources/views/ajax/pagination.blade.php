@@ -58,15 +58,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-md-offset-2 " style="margin: 0 auto;padding-top: 30px"><br>
-                <div class="panel panel-default border text-right">
-                    <div class="panel-heading text-center border body">کاربران</div>
-                    <div dir="rtl">
+                <div class="panel panel-default border">
+                    <div class="panel-heading text-center border body">Users</div>
+                    <div>
                         <form method="post" action="{{route('searchName')}}" class="form-horizontal" id="formSearch">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="contactname" id="txtSearch">
+                               <input type="text" class="form-control" name="contactname" id="txtSearch" placeholder="type username and press enter to show">
                                <span class="input-group-btn">
-                                   <button id="btnSearch" type="submit" style="border: none">
-                                <i class="btn btn-info btn-md" style="width: 70px;font-size: 12px">جستجو</i> </button>
+                                    <button id="btnSearch" type="submit" style="border: none">
+                                    <i class="btn btn-info btn-md" style="width: 70px;font-size: 12px">Search</i> </button>
                                </span>
                             </div>
                         </form>
@@ -76,14 +76,11 @@
                             <thead>
                             <tr>
 
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">انجام عملیات</th>
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">شماره تلفن</th>
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">پست الکترونیکی</th>
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">تاریخ ایجاد</th>
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">جنسیت</th>
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">نام کاربری</th>
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">نام خانوادگی</th>
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">نام</th>
+                                <th class="text-center" style="font-size: 12px;font-weight: bold">Email</th>
+                                <th class="text-center" style="font-size: 12px;font-weight: bold">Username</th>
+                                <th class="text-center" style="font-size: 12px;font-weight: bold">Family</th>
+                                <th class="text-center" style="font-size: 12px;font-weight: bold">Name</th>
+                                <th class="text-center" style="font-size: 12px;font-weight: bold">Operation</th>
 
                             </tr>
                             </thead>
@@ -91,25 +88,16 @@
                             @foreach($contacts as $value)
 
                                 <tr id="{{$value->id}}">
-
-                                    <td>
-
-                                        <a href="#" class="btn btn-info btn-sm" style="width: 70px;font-size: 12px" id="view" data-id="{{$value->id}}">تغییر رمز</a>
-                                        <a href="#" class="btn btn-success btn-sm" style="width: 70px;font-size: 12px" id="edit" data-id="{{$value->id}}">ویرایش</a>
-                                        <a href="#" class="btn btn-warning btn-sm" style="width: 70px;font-size: 12px" id="chaccess" data-id="{{$value->id}}">دسترسی ها</a>
-                                        <a href="#" class="btn btn-danger btn-sm" style="width: 70px;font-size: 12px" id="del" data-id="{{$value->id}}">حذف</a>
-
-                                    </td>
-
-                                    <td style="font-size: 12px">{{$value->cell_phone}}</td>
                                     <td style="font-size: 12px">{{$value->email}}</td>
-                                    <td style="font-size: 12px">{{$value->created_at_shamsi}}</td>
-                                    <td style="font-size: 12px">{{$value->gender}}</td>
                                     <td style="font-size: 12px">{{$value->username}}</td>
                                     <td style="font-size: 12px">{{$value->family}}</td>
                                     <td style="font-size: 12px">{{$value->name}}</td>
-
-
+                                    <td>
+                                        <a href="#" class="btn btn-info btn-sm" style="width: 70px;font-size: 12px" id="view" data-id="{{$value->id}}">Password</a>
+                                        <a href="#" class="btn btn-success btn-sm" style="width: 70px;font-size: 12px" id="edit" data-id="{{$value->id}}">Edit user</a>
+                                        <a href="#" class="btn btn-warning btn-sm" style="width: 70px;font-size: 12px" id="chaccess" data-id="{{$value->id}}">Access</a>
+                                        <a href="#" class="btn btn-danger btn-sm" style="width: 70px;font-size: 12px" id="del" data-id="{{$value->id}}">Remove</a>
+                                    </td>
                                 </tr>
 
                             @endforeach
@@ -120,7 +108,7 @@
                                 {{ $contacts->render() }}
                             </div>
                             <span class="input-group-btn">
-                              <a href="#" class="btn btn-success" id="addoneuser">کاربر جدید</a>
+                              <a href="#" class="btn btn-success" id="addoneuser">Add new user</a>
                            </span>
                         </div>
                     </div>
@@ -293,24 +281,18 @@
                             id: data.id
                         });
                         tr.append($('<td/>', {
-                            html: '<a href="#" class="btn btn-info btn-sm" style="width: 70px;font-size: 12px" id="view" data-id="' + data.id + '">تغییر رمز</a> '
-                            + '<a href="#" class="btn btn-success btn-sm" style="width: 70px;font-size: 12px" id="edit" data-id="' + data.id + '">ویرایش</a> ' +
-                            '<a href="#" class="btn btn-warning btn-sm" style="width: 70px;font-size: 12px" id="chaccess" data-id="' + data.id + '">دسترسی ها</a> ' +
-                            '<a href="#" class="btn btn-danger btn-sm" style="width: 70px;font-size: 12px" id="del" data-id="' + data.id + '">حذف</a>'
-                        })).append($('<td/>', {
-                            text: data.cell_phone
-                        })).append($('<td/>', {
                             text: data.email
-                        })).append($('<td/>', {
-                            text: data.created_at_shamsi
-                        })).append($('<td/>', {
-                            text: data.gender
                         })).append($('<td/>', {
                             text: data.username
                         })).append($('<td/>', {
                             text: data.family
                         })).append($('<td/>', {
                             text: data.name
+                        })).append($('<td/>', {
+                            html: '<a href="#" class="btn btn-info btn-sm" style="width: 70px;font-size: 12px" id="view" data-id="' + data.id + '">Password</a> '
+                                + '<a href="#" class="btn btn-success btn-sm" style="width: 70px;font-size: 12px" id="edit" data-id="' + data.id + '">Edit user</a> ' +
+                                '<a href="#" class="btn btn-warning btn-sm" style="width: 70px;font-size: 12px" id="chaccess" data-id="' + data.id + '">Access</a> ' +
+                                '<a href="#" class="btn btn-danger btn-sm" style="width: 70px;font-size: 12px" id="del" data-id="' + data.id + '">Remove</a>'
                         }));
                         $('#userimage').val('');
                         universal = null;
