@@ -3,10 +3,20 @@
 @include('ajax.updatepass')
 @include('ajax.AccessUser')
 @include('ajax.cheangeimage')
-@extends('Layouts.UpdeRegis')
-@section('URS')
+@extends('Layouts.englishHeader')
+@section('ContentsOfTheSite')
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{{asset('js\ImageCropShow.js')}}"></script>
+    <script src="{{asset('js\cropit.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('css/cropIt.css')}}"/>
     <style>
+        .ftco-navbar-light {
+            margin-bottom: 0;
+        }
         .modal { overflow: auto !important; }
         .bd-example-modal-lg .modal-dialog{
             display: table;
@@ -52,8 +62,8 @@
     <br>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-md-offset-2 " style="margin: 0 auto;padding-top: 30px"><br>
-                <div class="panel panel-default border">
+            <div class="col-md-12"><br>
+                <div class="panel panel-default border" style="margin-right: 32px !important;">
                     <div class="panel-heading text-center border body">Users</div>
                     <div>
                         <form method="post" action="{{route('searchName')}}" class="form-horizontal" id="formSearch">
@@ -79,7 +89,7 @@
 
                             </tr>
                             </thead>
-                            <tbody id="student-info" class="text-center" style="    font-size: 12px">
+                            <tbody id="student-info" class="text-center" style="font-size: 12px">
                             @foreach($contacts as $value)
 
                                 <tr id="{{$value->id}}">

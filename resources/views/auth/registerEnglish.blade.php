@@ -10,7 +10,6 @@
             <strong>user created successfully</strong>
         </div>
     @endif
-
     <div class="container" style="clear:both;margin-top: 10px">
         <div>
             <div class="panel panel-default">
