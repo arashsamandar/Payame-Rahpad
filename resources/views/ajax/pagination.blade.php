@@ -4,21 +4,16 @@
 @include('ajax.AccessUser')
 @include('ajax.cheangeimage')
 @extends('Layouts.UpdeRegis')
-
 @section('URS')
-    {{--<script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>--}}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-
         .modal { overflow: auto !important; }
-
         .bd-example-modal-lg .modal-dialog{
             display: table;
             position: relative;
             margin: 0 auto;
             top: calc(50% - 24px);
         }
-
         .bd-example-modal-lg .modal-dialog .modal-content{
             background-color: transparent;
             border: none;
@@ -40,19 +35,19 @@
         </div>
     </div>
     <div class="alert alert-success" id="success-alert" style="display: none">
-        <strong>عملیات با موفقیت انجام شد</strong>
+        <strong>operation done with success</strong>
     </div>
 
     <div class="alert alert-warning" id="warning-alert" style="display: none">
-        <strong>شما اجازه ی دسترسی به کاربران دیگر را ندارید</strong>
+        <strong>you don't have access to other users</strong>
     </div>
 
     <div class="alert alert-warning" id="create-alert" style="display: none">
-        <strong>شما جازه ی ایجاد کاربر جدید ندارید</strong>
+        <strong>you don't have permission to create user</strong>
     </div>
 
     <div class="alert alert-danger" id="remove-alert" style="display: none">
-        <strong>کاربر حذف شد</strong>
+        <strong>user removed successfully</strong>
     </div>
     <br>
     <div class="container">
@@ -530,24 +525,18 @@
                         id : data.id
                     });
                     tr.append($('<td/>',{
-                        html : '<a href="#" class="btn btn-info btn-sm" style="width: 70px;font-size: 12px" id="view" data-id="' + data.id + '">تغییر رمز</a> '
-                        + '<a href="#" class="btn btn-success btn-sm" style="width: 70px;font-size: 12px" id="edit" data-id="' + data.id + '">ویرایش</a> ' +
-                        '<a href="#" class="btn btn-warning btn-sm" style="width: 70px;font-size: 12px" id="chaccess" data-id="' + data.id + '">دسترسی ها</a> ' +
-                        '<a href="#" class="btn btn-danger btn-sm" style="width: 70px;font-size: 12px" id="del" data-id="' + data.id + '">حذف</a>'
-                    })).append($('<td/>',{
-                        text:data.cell_phone
-                    })).append($('<td/>',{
                         text:data.email
-                    })).append($('<td/>',{
-                        text:data.created_at_shamsi
-                    })).append($('<td/>',{
-                        text:data.gender
                     })).append($('<td/>',{
                         text:data.username
                     })).append($('<td/>',{
                         text:data.family
                     })).append($('<td/>',{
                         text:data.name
+                    })).append($('<td/>',{
+                        html : '<a href="#" class="btn btn-info btn-sm" style="width: 70px;font-size: 12px" id="view" data-id="' + data.id + '">Password</a> '
+                            + '<a href="#" class="btn btn-success btn-sm" style="width: 70px;font-size: 12px" id="edit" data-id="' + data.id + '">Edit user</a> ' +
+                            '<a href="#" class="btn btn-warning btn-sm" style="width: 70px;font-size: 12px" id="chaccess" data-id="' + data.id + '">Access</a> ' +
+                            '<a href="#" class="btn btn-danger btn-sm" style="width: 70px;font-size: 12px" id="del" data-id="' + data.id + '">Remove</a>'
                     }));
 
                     $('#userimage').val('');

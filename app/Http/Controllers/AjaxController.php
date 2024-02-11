@@ -123,7 +123,7 @@ class AjaxController extends Controller
                     'logTime' => $dateTime->format('H:i:s'),
                     'user_id' => $contact1->id,
                     'logCode' => '014',
-                    'log_desc' => 'حساب با موفقیت حذف شد',
+                    'log_desc' => 'user account removed successfully',
                     'Reserved1' => $userid,
                     'Reserved2' => $contact1->id,
                 ]);
@@ -200,7 +200,7 @@ class AjaxController extends Controller
                     'logTime' => $dateTime->format('H:i:s'),
                     'user_id' => $contact->id,
                     'logCode' => '011',
-                    'log_desc' => 'حساب با موفقیت ویرایش شد',
+                    'log_desc' => 'user edited successfully',
                     'Reserved1' => $userid,
                     'Reserved2' => $contact->id,
                 ]);
@@ -269,7 +269,7 @@ class AjaxController extends Controller
                 'logTime' => $dateTime->format('H:i:s'),
                 'user_id' => $myuserid,
                 'logCode' => '013',
-                'log_desc' => 'رمز عبور با موفقیت تغییر کرد',
+                'log_desc' => 'password was successfully changed',
                 'Reserved1' => $userid,
                 'Reserved2' => $myuserid,
             ]);
@@ -344,9 +344,9 @@ class AjaxController extends Controller
                     $permit->access_users = $grant_users_access;
                     $permit->access_contents = $grant_contents_access;
                     $permit->update();
-                    $user_acc = 'ویرایش دسترسی کاربر به ';
-                    if($grant_contents_access == 1) {$user_acc .= 'محتوا ';} if($grant_users_access == 1) {$user_acc .= 'کاربران ';}
-                    $user_acc .= 'داده شد';
+                    $user_acc = 'edit user access to ';
+                    if($grant_contents_access == 1) {$user_acc .= 'Content ';} if($grant_users_access == 1) {$user_acc .= 'Users ';}
+                    $user_acc .= 'Granted';
 
                     $dateTime = Carbon::now();
                     Logs::create([
@@ -359,9 +359,9 @@ class AjaxController extends Controller
                         'Reserved2' => $user_id,
                     ]);
                 } else {
-                    $user_acc = 'ویرایش دسترسی کاربر به ';
-                    if($grant_contents_access == 1) {$user_acc .= 'محتوا و ';} if($grant_users_access == 1) {$user_acc .= 'کاربران و ';}
-                    $user_acc .= 'داده شد';
+                    $user_acc = 'edit user access to ';
+                    if($grant_contents_access == 1) {$user_acc .= 'Content ';} if($grant_users_access == 1) {$user_acc .= 'Users ';}
+                    $user_acc .= 'Granted';
 
                     Permissions::create([
                         'user_id' => $user_id,
@@ -389,17 +389,3 @@ class AjaxController extends Controller
 
 
 }
-
-//    public function scopeSearch($query,$name) {
-//
-//        $myquery = $query->where('name','like','%' . $name . '%')
-//            ->orWhere('family','like','%' . $name . '%')
-//            ->orWhere('phone','like','%' . $name . '%')->get();
-//
-//        $imageData = \DB::table('user_images')->select('image')->where('user_id','=',$myquery->id)->first()->image;
-////        $arr = json_decode($myquery,true);
-////        $arrne['image'] = 'data:image/png;base64,' . $imageData;
-////        array_push($arr,$arrne);
-//        $myquery->image = 'data:image/png;base64,' . $imageData;
-//        return response($myquery);
-//    }

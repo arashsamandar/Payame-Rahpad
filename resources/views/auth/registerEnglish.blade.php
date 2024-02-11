@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="{{asset('css/cropIt.css')}}"/>
     @if(isset($aka))
         <div class="alert alert-success" style="text-align: center">
-            <strong>حساب کاربری با موفقیت ایجاد شد</strong>
+            <strong>user created successfully</strong>
         </div>
     @endif
 
