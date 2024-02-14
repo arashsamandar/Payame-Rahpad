@@ -1,6 +1,5 @@
 <div id="changeimage" class="modal fade" role="dialog">
     <div class="modal-dialog">
-
         <!-- Modal content-->
         <div class="modal-content" style="padding: 50px">
             <div class="modal-header">

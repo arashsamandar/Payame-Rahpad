@@ -61,7 +61,7 @@
                             @endif
                         </button>
                         @if(Auth::user() || Auth::guard('admin')->check())
-                            <div class="dropdown-menu" style="margin:0;padding:0;font-family: Azonix" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-menu" style="margin:0;padding:0;font-family: Azonix;" aria-labelledby="dropdownMenuButton">
                                 <a href="{{route('userspagination')}}" class="dropdown-item"><span class="fa fa-user"><span class="Azonix-style">&nbsp;Users</span></span></a>
                                 <a href="{{route('addcontent')}}" class="dropdown-item"><span class="fa fa-edit"><span class="Azonix-style">&nbsp;Contents</span></span></a>
                                 @if(Auth::guard('admin')->check())
@@ -70,7 +70,7 @@
                                 @elseif(Auth::user())
                                     <a class="dropdown-item" href="{{route('user.messages')}}"><span class="fa fa-envelope"><span class="Azonix-style">&nbsp;Messages</span></span><span class="badge bg-warning">{{\App\Http\Controllers\AjaxMessageController::Count_unread_user_message()}}</span></a>
                                 @endif
-                                @if(Auth::user())
+                                @if(Auth::user() && !Auth::guard('admin')->check())
                                     <a class="dropdown-item" href="{{route('update')}}"><span class="fa fa-address-card"><span class="Azonix-style">&nbsp;Edit {{Auth::user()->name}}&nbsp;{{Auth::user()->family}}</span></span></a>
                                 @endif
                                 <a class="dropdown-item" href="{{route('uppass')}}"><span class="fa fa-lock"><span class="Azonix-style">&nbsp;Change Password</span></span></a>
@@ -85,7 +85,7 @@
                 </button>
                 <div id="ftco-nav" class="collapse navbar-collapse CustomFont @if(Auth::user() || Auth::guard('admin')->check()) mainMenuPaddingLeft @endif">
                     <ul class="navbar-nav mr-auto ml-auto" >
-                        <li class="nav-item"><a href="#" class="nav-link">HOME</a></li>
+                        <li class="nav-item"><a href="{{route('home')}}" class="nav-link">HOME</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">ABOUT</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">SITES</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">CONTACTS</a></li>

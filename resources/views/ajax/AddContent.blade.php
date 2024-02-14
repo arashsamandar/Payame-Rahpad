@@ -1,3 +1,4 @@
+@include('Layouts.hideModals')
 @include('ajax.NewContentAdd')
 @include('ajax.UpdateContent')
 @include('ajax.AddContentImages')

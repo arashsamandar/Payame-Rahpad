@@ -5,39 +5,17 @@
 @include('ajax.cheangeimage')
 @extends('Layouts.englishHeader')
 @section('ContentsOfTheSite')
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="{{asset('js\ImageCropShow.js')}}"></script>
-    <script src="{{asset('js\cropit.js')}}"></script>
-    <link rel="stylesheet" href="{{asset('css/cropIt.css')}}"/>
-    <style>
-        .ftco-navbar-light {
-            margin-bottom: 0;
-        }
-        .modal { overflow: auto !important; }
-        .bd-example-modal-lg .modal-dialog{
-            display: table;
-            position: relative;
-            margin: 0 auto;
-            top: calc(50% - 24px);
-        }
-        .bd-example-modal-lg .modal-dialog .modal-content{
-            background-color: transparent;
-            border: none;
-        }
-    </style>
-    <script>
-        function modal(){
-            $('#doloading').modal('show');
-        }
-        function hidmodal() {
-            $('#doloading').modal('hide');
-        }
-    </script>
-    <div id="doloading" class="modal fade bd-example-modal-lg" data-backdrop="static" data-keyboard="false" tabindex="-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+<link rel="stylesheet" href="{{asset('css\cropIt.css')}}"/>
+<link rel="stylesheet" href="{{asset('css\modalConfigs.css')}}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{{asset('js\ImageCropShow.js')}}"></script>
+<script src="{{asset('js\cropit.js')}}"></script>
+<script src="{{asset('js\showHideModals.js')}}" ></script>
+    <div id="doloading" class="modal fade bd-example-modal-lg" style="visibility: visible;position: static;top:auto" data-backdrop="static" data-keyboard="false" tabindex="-1">
         <div class="modal-dialog modal-sm">
             <div class="modal-content" style="width: 48px">
                 <span class="fa fa-spinner fa-spin fa-3x"></span>
@@ -63,7 +41,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12"><br>
-                <div class="panel panel-default border" style="margin-right: 32px !important;">
+                <div class="panel panel-default border" style="margin-right: 30px !important;">
                     <div class="panel-heading text-center border body">Users</div>
                     <div>
                         <form method="post" action="{{route('searchName')}}" class="form-horizontal" id="formSearch">
@@ -109,12 +87,12 @@
                             </tbody>
                         </table>
                         <div class="input-group">
-                            <div style="float: left">
-                                {{ $contacts->render() }}
-                            </div>
                             <span class="input-group-btn">
                               <a href="#" class="btn btn-success" id="addoneuser">Add new user</a>
                            </span>
+                            <div style="float: right">
+                                {{ $contacts->render() }}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -233,16 +211,13 @@
             universal = null;
             if($('#userimage').val() !== "") {
                 universal = null;
-
                 $('#frm-insert').passdata = null;
                 $('#cropitbaby').on('submit', function (e) {
                     e.preventDefault();
                 });
                 $('#cropitbaby').submit();
                 universal = $("input#image-data").val();
-
                 console.log(universal);
-
             }
             $("input#usercropedimage").val(universal);
             var data = $(this).serialize();
@@ -301,7 +276,6 @@
                         }));
                         $('#userimage').val('');
                         universal = null;
-
                         $('#student-info').append(tr);
                         $('#success-alert').css('display','block');
                         $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {

@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0dbd0e0-3a99-4867-a59b-7543e5b75998" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/public/js/showHideModals.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Layouts/hideModals.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/BYekan.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/modalConfigs.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/englishStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/englishStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/englishHeader.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/englishHeader.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ajax/AddContent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ajax/AddContent.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ajax/addStudent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ajax/addStudent.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ajax/cheangeimage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ajax/cheangeimage.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/ajax/pagination.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ajax/pagination.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/ajax/updateStudent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ajax/updateStudent.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/registerEnglish.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/registerEnglish.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +53,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/app/messages.php" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/public/css/englishStyle.css" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/public/js/showHideModals.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/resources/views/Layouts/app3.blade.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/resources/views/Layouts/englishHeader.blade.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
   </component>
@@ -191,11 +201,11 @@
       <recent name="E:\Laravel_Projects\pr\public\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Programmer-Codes\Laravel\Payame-Rahpad-Two-ui\Payame-Rahpad\resources\views\Layouts" />
+      <recent name="E:\Programmer-Codes\Laravel\Payame-Rahpad-Two-ui\Payame-Rahpad\resources\views\ajax" />
       <recent name="E:\Programmer-Codes\Laravel\Payame-Rahpad-Two-ui\Payame-Rahpad\public\fonts" />
       <recent name="E:\Laravel_Projects\pr\resources\views\auth" />
       <recent name="E:\Laravel_Projects\pr\public\images" />
-      <recent name="E:\Laravel_Projects\pr\resources\views" />
-      <recent name="E:\New folder\pr\public\fonts" />
     </key>
   </component>
   <component name="RunManager" selected="PHP Web Page.Unnamed">
@@ -449,6 +459,9 @@
       <workItem from="1707330740186" duration="846000" />
       <workItem from="1707387126137" duration="18284000" />
       <workItem from="1707476733283" duration="9896000" />
+      <workItem from="1707725683682" duration="1112000" />
+      <workItem from="1707755336474" duration="5407000" />
+      <workItem from="1707902843697" duration="1213000" />
     </task>
     <servers />
   </component>

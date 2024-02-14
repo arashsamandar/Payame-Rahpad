@@ -52,18 +52,12 @@ class AjaxController extends Controller
                 } else {
                     $userid = 0;
                 }
-
-                $contact = User::create([
+                $user = User::create([
                     'name' => $request->input('name'),
                     'family' => $request->input('family'),
-                    'national_code' => $request->input('national_code'),
-                    'gender' => $request->input('gender'),
-                    'birth_date' => $request->input('birth_date'),
                     'username' => $request->input('username'),
                     'password' => bcrypt($request->input('password')),
-                    'cell_phone' => $request->input('cell_phone'),
                     'email' => $request->input('email'),
-                    'created_at_shamsi' => Carbon::now()->toDateString(),
                 ]);
 
                 if ($request->get('usercropedimage')) {
@@ -74,7 +68,7 @@ class AjaxController extends Controller
                     $final_image = base64_encode($img);
 
                     UserImages::create([
-                        'user_id' => $contact->id,
+                        'user_id' => $user->id,
                         'image' => $final_image,
                     ]);
 
@@ -83,13 +77,13 @@ class AjaxController extends Controller
                 Logs::create([
                     'logDate' => $dateTime->toDateString(),
                     'logTime' => $dateTime->format('H:i:s'),
-                    'user_id' => $contact->id,
+                    'user_id' => $user->id,
                     'logCode' => '010',
                     'log_desc' => 'account created successfully',
                     'Reserved1' => $userid,
-                    'Reserved2' => $contact->id,
+                    'Reserved2' => $user->id,
                 ]);
-                return response($contact);
+                return response($user);
             }
             return response('fail');
         }

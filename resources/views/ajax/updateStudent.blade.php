@@ -1,5 +1,4 @@
 <script>
-
     function arash() {
         $('.cropit-preview-image').attr('src','');
 
@@ -22,10 +21,14 @@
 
 </script>
 <style>
+    .modal-content {
+        visibility: hidden;
+        position: absolute;
+        top: -9999px;
+    }
     .datepicker thead tr:first-child th {
         color: #5bc0de;
     }
-
     .datepicker th.next {
         .glyphicon .glyphicon-chevron-left;
     }
