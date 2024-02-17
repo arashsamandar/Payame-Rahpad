@@ -165,7 +165,8 @@ h1, h2, h3, h4, h5,
     }
 }
 .ftco-navbar-light .navbar-nav > .nav-item.active > a {
-    color: #007bff; }
+    color: #007bff;
+}
 @media (max-width: 991.98px) {
     .ftco-navbar-light .navbar-nav > .nav-item.active > a {
         color: #fff;
@@ -229,6 +230,7 @@ h1, h2, h3, h4, h5,
 @media screen and (max-width: 990px) {
     .container .user-image {
         padding-right: 10px;
+        /*display: block !important;*/
     }
     .mainMenuPaddingLeft {
         padding-left: 0px;
@@ -240,6 +242,9 @@ h1, h2, h3, h4, h5,
         width: 50px;height: 50px;
         border-radius: 20%;
         box-shadow: 3px 3px 5px grey;
+    }
+    #dropdownMenuButton {
+        /*margin-right: 700px;*/
     }
 }
 @media screen and (max-width: 770px) {

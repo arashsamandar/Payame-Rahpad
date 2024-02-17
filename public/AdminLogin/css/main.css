@@ -6,6 +6,11 @@
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
+@font-face {
+  font-family: 'Azonix';
+  src: url("../fonts/Azonix.otf") format('opentype');
+  font-display: block;
+}
 
 @font-face {
   font-family: Poppins-Regular;
@@ -38,12 +43,12 @@
 
 body, html {
 	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
+  font-family: 'Azonix', Arial, Helvetica, sans-serif !important;
 }
 
 /*---------------------------------------------*/
 a {
-	font-family: Poppins-Regular;
+  font-family: 'Azonix', Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -177,7 +182,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #ebeeef;
+  background: white;
 }
 
 

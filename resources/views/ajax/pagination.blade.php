@@ -5,19 +5,21 @@
 @include('ajax.cheangeimage')
 @extends('Layouts.englishHeader')
 @section('ContentsOfTheSite')
+<title>Users Page</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
 <link rel="stylesheet" href="{{asset('css\cropIt.css')}}"/>
 <link rel="stylesheet" href="{{asset('css\modalConfigs.css')}}" />
+<link rel="stylesheet" href="{{asset('css\dropDownForUsersPage.css')}}" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="{{asset('js\ImageCropShow.js')}}"></script>
 <script src="{{asset('js\cropit.js')}}"></script>
 <script src="{{asset('js\showHideModals.js')}}" ></script>
-    <div id="doloading" class="modal fade bd-example-modal-lg" style="visibility: visible;position: static;top:auto" data-backdrop="static" data-keyboard="false" tabindex="-1">
+    <div id="doloading" class="modal fade bd-example-modal-lg" data-backdrop="static" data-keyboard="false" tabindex="-1">
         <div class="modal-dialog modal-sm">
-            <div class="modal-content" style="width: 48px">
+            <div class="modal-content" style="width: 48px;visibility: visible;position: static;top:auto">
                 <span class="fa fa-spinner fa-spin fa-3x"></span>
             </div>
         </div>
@@ -87,12 +89,12 @@
                             </tbody>
                         </table>
                         <div class="input-group">
-                            <span class="input-group-btn">
-                              <a href="#" class="btn btn-success" id="addoneuser">Add new user</a>
-                           </span>
-                            <div style="float: right">
+                            <div style="float: left">
                                 {{ $contacts->render() }}
                             </div>
+                            <span class="input-group-btn">
+                              <a href="#" class="btn btn-success" id="addoneuser">Add new user</a>
+                            </span>
                         </div>
                     </div>
                 </div>

@@ -144,3 +144,24 @@ $(function () {
     });
 
 });
+
+$(function () {
+    $("#start_datee").datepicker({
+        changeYear:true,
+        changeMonth: true,
+        dateFormat: 'yy/mm/dd',
+        yearRange:'2024:2040',
+        defaultDate: '2024/01/01'
+    });
+});
+
+$(function () {
+    $("#end_datee").datepicker({
+        changeYear:true,
+        changeMonth: true,
+        dateFormat: 'yy/mm/dd',
+        yearRange:'2024:2040',
+        defaultDate: '2024/01/01'
+    });
+
+});

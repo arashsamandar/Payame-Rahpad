@@ -12,12 +12,16 @@ setupModalHandlers('#changeimage');
 setupModalHandlers('#changingpass');
 setupModalHandlers('#user-access');
 setupModalHandlers('#myModal');
+setupModalHandlers('#modal-updatecontent');
+setupModalHandlers('#modal-newcontent');
+setupModalHandlers('#addcontentimages');
 
 document.querySelector(".dropdown-menu").style.fontSize = "24px";
 let dropDownItems = document.querySelectorAll(".dropdown-item");
 dropDownItems.forEach(item=>{
     item.style.padding = "6px 24px";
 });
+
 function modal(){
     $('#doloading').modal('show');
 }

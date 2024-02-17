@@ -10,15 +10,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('.dropdown').hover(function() {
-                $(this).find('.dropdown-menu').stop(true, true).delay(0).fadeIn(500);
-            }, function() {
-                $(this).find('.dropdown-menu').stop(true, true).delay(0).fadeOut(500);
-            });
-        });
-    </script>
+{{--    <script>--}}
+{{--        $(document).ready(function(){--}}
+{{--            $('.dropdown').hover(function() {--}}
+{{--                $(this).find('.dropdown-menu').stop(true, true).delay(0).fadeIn(500);--}}
+{{--            }, function() {--}}
+{{--                $(this).find('.dropdown-menu').stop(true, true).delay(0).fadeOut(500);--}}
+{{--            });--}}
+{{--        });--}}
+{{--    </script>--}}
 </head>
 <body>
 <section class="ftco-section">
@@ -40,7 +40,7 @@
                     <a href="{{route('update')}}" class="top-navbar-links d-flex"><span><i>{{Auth::user()->name . ' ' . Auth::user()->family}}</i></span></a>
                 @endif
                 @if(Auth::guard('admin')->check())
-                    <a href="#" class="top-navbar-links d-flex" style="padding-right: 20px"><span><i>{{\App\Http\Controllers\AdminNameController::adminName()}}</i></span></a>
+                    <a href="#" class="top-navbar-links d-flex"><span><i>Administrator</i></span></a>
                 @endif
             </p>
         </div>
@@ -49,7 +49,7 @@
                 <div class="order-lg-last">
                     @if(Auth::user() || Auth::guard('admin')->check())
                     <div class="dropdown">
-                        <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-link dropdown-toggle border-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             @if(Auth::guard('admin')->check())
                                 <img src="{{asset('images/default1.jpg')}}" class="img-user-image" alt="User Image">
                             @elseif(Auth::user())
@@ -74,7 +74,11 @@
                                     <a class="dropdown-item" href="{{route('update')}}"><span class="fa fa-address-card"><span class="Azonix-style">&nbsp;Edit {{Auth::user()->name}}&nbsp;{{Auth::user()->family}}</span></span></a>
                                 @endif
                                 <a class="dropdown-item" href="{{route('uppass')}}"><span class="fa fa-lock"><span class="Azonix-style">&nbsp;Change Password</span></span></a>
+                                @if(Auth::guard('admin')->check())
+                                    <a class="dropdown-item" href="{{route('admin.logout')}}"><span class="fa fa-window-close"><span class="Azonix-style">&nbsp;Exit Admin</span></span></a>
+                                @else
                                 <a class="dropdown-item" href="{{route('logout')}}" onclick="document.getElementById('logout-form').submit();"><span class="fa fa-window-close"><span class="Azonix-style">&nbsp;Exit</span></span></a>
+                                @endif
                             </div>
                         @endif
                     </div>

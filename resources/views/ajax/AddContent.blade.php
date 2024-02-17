@@ -1,83 +1,69 @@
-@include('Layouts.hideModals')
 @include('ajax.NewContentAdd')
 @include('ajax.UpdateContent')
 @include('ajax.AddContentImages')
-@extends('Layouts.UpdeRegis')
-
-@section('URS')
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-
-        .modal { overflow: auto !important; }
-
-        .bd-example-modal-lg .modal-dialog{
-            display: table;
-            position: relative;
-            margin: 0 auto;
-            top: calc(50% - 24px);
-        }
-
-        .bd-example-modal-lg .modal-dialog .modal-content{
-            background-color: transparent;
-            border: none;
-        }
-    </style>
-    <script>
-        function modal(){
-            $('#doloading').modal('show');
-        }
-        function hidmodal() {
-            $('#doloading').modal('hide');
-        }
-    </script>
+@extends('Layouts.englishHeader')
+@section('ContentsOfTheSite')
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+<link rel="stylesheet" href="{{asset('css\datepicker.css')}}" />
+<link rel="stylesheet" href="{{asset('css\cropIt.css')}}"/>
+<link rel="stylesheet" href="{{asset('css\modalConfigs.css')}}" />
+<link rel="stylesheet" href="{{asset('css\dropDownForUsersPage.css')}}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{{asset('js\ImageCropShow.js')}}"></script>
+<script src="{{asset('js\rejs.js')}}"></script>
+<script src="{{asset('js\cropit.js')}}"></script>
+<script src="{{asset('js\showHideModals.js')}}" ></script>
     <div id="doloading" class="modal fade bd-example-modal-lg" data-backdrop="static" data-keyboard="false" tabindex="-1">
         <div class="modal-dialog modal-sm">
-            <div class="modal-content" style="width: 48px">
+            <div class="modal-content" style="width: 48px;visibility: visible;position: static;top:auto">
                 <span class="fa fa-spinner fa-spin fa-3x"></span>
             </div>
         </div>
     </div>
-
     <div class="alert alert-success" id="success-alert" style="display: none">
-        <strong>محتوا ذخیر شد</strong><br>
-        <strong>لطفا منتظر تایید محتوا باشید</strong>
+        <strong>Content saved successfully</strong><br>
+        <strong>Please wait for admin approval</strong>
     </div>
 
     <div class="alert alert-danger" id="warning-alert" style="display: none">
-        <strong>محتوای مورد نظر یافت نشد</strong>
+        <strong>Could not find content</strong>
     </div>
 
     <div class="alert alert-danger" id="remove-alert" style="display: none">
-        <strong>محتوای مورد نظر حذف شد</strong>
+        <strong>Content removed successfully</strong>
     </div>
 
     <div class="alert alert-warning" id="access-alert" style="display: none">
-        <strong>شما اجازه ی دسترسی به کاربران دیگر را ندارید</strong>
+        <strong>you do not have access to other users</strong>
     </div>
 
     <div class="alert alert-warning" id="create-alert" style="display: none">
-        <strong>تا زمان تایید محتوای قبلی اجازه ی ایجاد محتوای جدید ندارید</strong><br>
-        <strong>لطفا منتظر تایید محتوای قبلی خود بمانید</strong>
+        <strong>You can not create another content until your last one is approved by admin</strong><br>
+        <strong>Please wait for your content to be approved</strong>
     </div>
 
     <div class="alert alert-warning" id="change-alert" style="display: none">
-        <strong>محتوا ویرایش شد</strong><br>
-        <strong>لطفا برای نمایش آن منتظر تایید مدیر سایت باشید</strong><br>
-        <strong>با تشکر از شکیبایی شما ...</strong><br>
+        <strong>Content edited successfully</strong><br>
+        <strong>Please wait for admin to approve your content</strong><br>
+        <strong>Thanks for your patience</strong><br>
     </div>
     <br>
     <div class="container" id="">
         <div class="row">
-            <div class="col-md-12 col-md-offset-2 " style="margin: 0 auto;padding-top: 30px"><br>
-                <div class="panel panel-default border text-right">
-                    <div class="panel-heading text-center border body">محتوا</div>
-                    <div dir="rtl">
-                        <form method="post" action="{{route('searchName')}}" class="form-horizontal" id="formSearch">
+            <div class="col-md-12 col-md-offset-2" style="margin: 0 auto;"><br>
+                <div class="panel panel-default border" style="margin-right: 30px !important;">
+                    <div class="panel-heading text-center border body">Contents</div>
+                    <div>
+    {{--            give action="{{route('searchName')}} and method="POST" to the Form & Fix The Underlying Method Of Action            --}}
+                        <form class="form-horizontal" id="formSearch">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="contactname" id="txtSearch">
                                 <span class="input-group-btn">
                                    <button id="btnSearch" type="submit" style="border: none">
-                                <i class="btn btn-info btn-md" style="width: 70px;font-size: 12px">جستجو</i> </button>
+                                <i class="btn btn-info btn-md" style="width: 70px;font-size: 12px">Search</i> </button>
                                </span>
                             </div>
                         </form>
@@ -86,41 +72,32 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">انجام عملیات</th>
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">تاریخ خاتمه</th>
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">تاریخ شروع</th>
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">آدرس صفحه</th>
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">محل درج</th>
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">خلاصه</th>
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">عنوان</th>
-
+                                <th class="text-center" style="font-size: 12px;font-weight: bold">Title</th>
+                                <th class="text-center" style="font-size: 12px;font-weight: bold">Brief</th>
+                                <th class="text-center" style="font-size: 12px;font-weight: bold">Place</th>
+                                <th class="text-center" style="font-size: 12px;font-weight: bold">Page address</th>
+                                <th class="text-center" style="font-size: 12px;font-weight: bold">Start date</th>
+                                <th class="text-center" style="font-size: 12px;font-weight: bold">End date</th>
+                                <th class="text-center" style="font-size: 12px;font-weight: bold">Operation</th>
                             </tr>
                             </thead>
                             <tbody id="content-info" class="text-center" style="font-size: 12px;">
                             @foreach($contents as $value)
-
-                                <tr id="{{$value->id}}" style="cursor: pointer" onclick="showUpdateContent({{$value->id}})" @if(\App\Http\Controllers\AjaxMessageController::checkIfApprovedForTR($value->id) == 1) bgcolor="#e0fde0" title="محتوا تایید شده است"
-                                        @elseif(\App\Http\Controllers\AjaxMessageController::checkIfApprovedForTR($value->id) == 0)bgcolor="#ffebe5" title="درخواست ویراش ارسال شده"
-                                        @elseif(\App\Http\Controllers\AjaxMessageController::checkIfApprovedForTR($value->id) == 4)bgcolor="#EEE" title="محتوا تایید نشده است"
-                                        @endif>
-
-                                    <td>
-
-                                        <a href="#" class="btn btn-success btn-sm" style="width: 70px;font-size: 12px" id="edit" data-id="{{$value->id}}">ویرایش</a>
-                                        <a href="#" class="btn btn-danger btn-sm" style="width: 70px;font-size: 12px" id="del" data-id="{{$value->id}}">حذف</a>
-
-                                    </td>
-
-                                    <td style="font-size: 12px">{{$value->End_at}}</td>
-                                    <td style="font-size: 12px">{{$value->Begin_at}}</td>
-                                    <td style="font-size: 12px">{{$value->page_address}}</td>
-                                    <td style="font-size: 12px">{{$value->input_at}}</td>
-                                    <td style="font-size: 12px">{{$value->brief}}</td>
+                                <tr id="{{$value->id}}" style="cursor: pointer" onclick="showUpdateContent({{$value->id}})"
+                                    @if(\App\Http\Controllers\AjaxMessageController::checkIfApprovedForTR($value->id) == 1) bgcolor="#e0fde0" title="Content is approved"
+                                        @elseif(\App\Http\Controllers\AjaxMessageController::checkIfApprovedForTR($value->id) == 0)bgcolor="#ffebe5" title="Edit sent for approval"
+                                        @elseif(\App\Http\Controllers\AjaxMessageController::checkIfApprovedForTR($value->id) == 4)bgcolor="#EEE" title="Content is not approved yet"
+                                    @endif>
                                     <td style="font-size: 12px">{{$value->title}}</td>
-
-
-
+                                    <td style="font-size: 12px">{{$value->brief}}</td>
+                                    <td style="font-size: 12px">{{$value->input_at}}</td>
+                                    <td style="font-size: 12px">{{$value->page_address}}</td>
+                                    <td style="font-size: 12px">{{$value->Begin_at}}</td>
+                                    <td style="font-size: 12px">{{$value->End_at}}</td>
+                                    <td>
+                                        <a href="#" class="btn btn-success btn-sm" style="width: 70px;font-size: 12px" id="edit" data-id="{{$value->id}}">Edit</a>
+                                        <a href="#" class="btn btn-danger btn-sm" style="width: 70px;font-size: 12px" id="del" data-id="{{$value->id}}">Remove</a>
+                                    </td>
                                 </tr>
 
                             @endforeach
@@ -131,13 +108,13 @@
                                 {{ $contents->render() }}
                             </div>
                             @if(\App\Http\Controllers\PermissionController::User_have_permission_to_create_content(\Auth::user()->id))
-                            <span class="input-group-btn">
-                              <button class="btn btn-success" data-toggle="modal" id="addOneContent">محتوای جدید</button>
-                           </span>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success" data-toggle="modal" id="addOneContent">Add new content</button>
+                                </span>
                            @elseif(Auth::guard('admin')->check())
                                 <span class="input-group-btn">
-                              <button class="btn btn-success" data-toggle="modal" id="addOneContent">محتوای جدید</button>
-                           </span>
+                                    <button class="btn btn-success" data-toggle="modal" id="addOneContent">Add new content</button>
+                                </span>
                            @endif
                         </div>
                     </div>
@@ -258,10 +235,6 @@
                         });
                         tr.css('background-color','#EEE')
                         tr.append($('<td/>',{
-                            html :
-                            '<a href="#" class="btn btn-success btn-sm" style="width: 70px;font-size: 12px" id="edit" data-id="' + data.id + '">ویرایش</a> ' +
-                            '<a href="#" class="btn btn-danger btn-sm" style="width: 70px;font-size: 12px" id="del" data-id="' + data.id + '">حذف</a>'
-                        })).append($('<td/>',{
                             text:data.End_at
                         })).append($('<td/>',{
                             text:data.Begin_at
@@ -273,8 +246,11 @@
                             text:data.brief
                         })).append($('<td/>',{
                             text:data.title
+                        })).append($('<td/>',{
+                            html :
+                                '<a href="#" class="btn btn-success btn-sm" style="width: 70px;font-size: 12px" id="edit" data-id="' + data.id + '">Edit</a> ' +
+                                '<a href="#" class="btn btn-danger btn-sm" style="width: 70px;font-size: 12px" id="del" data-id="' + data.id + '">Remove</a>'
                         }));
-
 
                         $('#user_content_image').val('');
                         $('#modal-newcontent').modal('hide');
@@ -481,10 +457,6 @@
                         });
                         tr.css('background-color', data[0].message_color);
                         tr.append($('<td/>', {
-                            html:
-                            '<a href="#" class="btn btn-success btn-sm" style="width: 70px;font-size: 12px" id="edit" data-id="' + data.id + '">ویرایش</a> ' +
-                            '<a href="#" class="btn btn-danger btn-sm" style="width: 70px;font-size: 12px" id="del" data-id="' + data.id + '">حذف</a>'
-                        })).append($('<td/>', {
                             text: data.End_at
                         })).append($('<td/>', {
                             text: data.Begin_at
@@ -496,6 +468,10 @@
                             text: data.brief
                         })).append($('<td/>', {
                             text: data.title
+                        })).append($('<td/>', {
+                            html:
+                                '<a href="#" class="btn btn-success btn-sm" style="width: 70px;font-size: 12px" id="edit" data-id="' + data.id + '">Edit</a> ' +
+                                '<a href="#" class="btn btn-danger btn-sm" style="width: 70px;font-size: 12px" id="del" data-id="' + data.id + '">Remove</a>'
                         }));
                         $('#user_content_image_small').val('');
                         $('#user_content_image').val('');
@@ -513,24 +489,22 @@
                         });
                         tr.css('background-color', data[0].message_color);
                         tr.append($('<td/>', {
-                            html:
-                            '<a href="#" class="btn btn-success btn-sm" style="width: 70px;font-size: 12px" id="edit" data-id="' + data.id + '">ویرایش</a> ' +
-                            '<a href="#" class="btn btn-danger btn-sm" style="width: 70px;font-size: 12px" id="del" data-id="' + data.id + '">حذف</a>'
-                        })).append($('<td/>', {
-                            text: data.End_at
-                        })).append($('<td/>', {
-                            text: data.Begin_at
-                        })).append($('<td/>', {
-                            text: data.page_address
-                        })).append($('<td/>', {
-                            text: data.input_at
+                            text: data.title
                         })).append($('<td/>', {
                             text: data.brief
                         })).append($('<td/>', {
-                            text: data.title
+                            text: data.input_at
+                        })).append($('<td/>', {
+                            text: data.page_address
+                        })).append($('<td/>', {
+                            text: data.Begin_at
+                        })).append($('<td/>', {
+                            text: data.End_at
+                        })).append($('<td/>', {
+                            html:
+                                '<a href="#" class="btn btn-success btn-sm" style="width: 70px;font-size: 12px" id="edit" data-id="' + data.id + '">Edit</a> ' +
+                                '<a href="#" class="btn btn-danger btn-sm" style="width: 70px;font-size: 12px" id="del" data-id="' + data.id + '">Remove</a>'
                         }));
-
-
                         $('#user_content_image_small').val('');
                         $('#user_content_image').val('');
                         $('#content-info tr#' + data.id).replaceWith(tr);

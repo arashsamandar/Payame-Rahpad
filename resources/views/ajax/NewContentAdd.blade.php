@@ -1,24 +1,25 @@
 <link rel="stylesheet" href="{{asset('css\progressStyle.css')}}" />
+<style>
+    .modal-content {
+        visibility: hidden;
+        position: absolute;
+        top: -9999px;
+    }
+</style>
 <script>
-
     //----------------------------------Close Modal Function-------------------------------
-
     function closecontent() {
         $('.modal-backdrop').remove();
         $('body').removeClass('modal-open');
         $('#modal-newcontent').modal('hide');
     }
-
-
 </script>
-
-
 <div id="modal-newcontent" class="modal fade" role="dialog">
-    <div class="modal-dialog" style="width: 1000px;">
+    <div class="modal-dialog modal-xl" style="width: 1000px;">
         <!-- Modal content-->
-        <div class="modal-content" dir="rtl">
+        <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">ایجاد محتوای جدید</h4>
+                <h4 class="modal-title">Create new content</h4>
             </div>
 
             <form id="frm-newcontentform" action="{{route('saveContent')}}" method="post">
@@ -31,79 +32,71 @@
                 <div class="row"  style="clear: both">
                     {{--<div class="form-group">--}}
                     <br>
-                    <div dir="rtl" style="margin-right: 50px;margin-left:50px;font-size: 18px;">
-                        <label for="title" >عنوان :</label>
-                        <input type="text" id="title" name="title" class="form-control input-md"  placeholder="عنوان را وارد کنید" maxlength="30" />
+                    <div style="margin-right: 50px;margin-left:50px;font-size: 18px;">
+                        <label for="title" >Title :</label>
+                        <input type="text" id="title" name="title" class="form-control input-md"  placeholder="enter title" maxlength="30" />
                     </div>
                     {{--</div>--}}
                 </div>
-
                 <div class="row"  style="clear: both">
                     {{--<div class="form-group">--}}
-                    <div dir="rtl" style="margin-right: 50px;margin-left:50px;font-size: 18px;">
-                        <label for="brief" style="margin-top: 10px" >خلاصه :</label>
-                        <input type="text" id="brief" name="brief" class="form-control input-md"  placeholder="خلاصه را وارد کنید" maxlength="300" />
+                    <div style="margin-right: 50px;margin-left:50px;font-size: 18px;">
+                        <label for="brief" style="margin-top: 10px" >Brief :</label>
+                        <input type="text" id="brief" name="brief" class="form-control input-md"  placeholder="enter brief" maxlength="300" />
                     </div>
                     {{--</div>--}}
                 </div>
-
                 <div class="row" style="clear: both;">
-                    <div dir="rtl" style="margin-right: 50px;margin-left:50px;font-size: 18px">
-                        <label for="inputat" style="margin-top: 10px">محل درج :</label>
-                        <select name="inputat" id="inputat" class="form-control" dir="rtl">
-                            <option value="1">اسلایدر صفحه ی اول</option>
-                            <option value="2">پایین صفحه</option>
-                            <option selected disabled value="">محل درج آگهی خود را انتخاب کنید</option>
+                    <div style="margin-right: 50px;margin-left:50px;font-size: 18px">
+                        <label for="inputat" style="margin-top: 10px">Add to landing page :</label>
+                        <select name="inputat" id="inputat" class="form-control">
+                            <option value="1" style="font-weight: bold">Slider</option>
+                            <option value="2" style="font-weight: bold">Bottom images</option>
+                            <option selected disabled value="">enter the place of your advertisement</option>
                         </select>
                         <small style="color: red;">@foreach($errors->get('inputat') as $message ) {{$message}}   @endforeach</small>
-                        <small style="display: none;color: red;">محل درج آگهی خود را انتخاب کنید</small>
+                        <small style="display: none;color: red;">enter the place of your advertisement</small>
                     </div>
                 </div><br><br>
-
                 <div class="row">
                     <div style="width:925px;margin-right: 50px;margin-left:50px;margin-top:0;font-size: 18px;">
-                            <label for="input_definition">شرح :</label>
+                            <label for="input_definition">Description :</label>
                                 <textarea class="form-control input_definition" style="margin-top: 0;" name="input_definition" id="input_definition" rows="10"></textarea>
                     </div>
                 </div>
-
                 <div class="row"  style="clear: both">
                     {{--<div class="form-group">--}}
-                    <div dir="rtl" style="margin-right: 50px;margin-left:50px;font-size: 18px;">
-                        <label for="page_address" style="margin-top: 30px" >آدرس صفحه :</label>
-                        <input type="text" id="page_address" name="page_address" class="form-control input-md"  placeholder="آدرس صفحه را وارد کنید" maxlength="30" />
+                    <div style="margin-right: 50px;margin-left:50px;font-size: 18px;">
+                        <label for="page_address" style="margin-top: 30px" >Website address</label>
+                        <input type="text" id="page_address" name="page_address" class="form-control input-md"  placeholder="enter your website address" maxlength="30" />
                     </div>
                     {{--</div>--}}
                 </div>
-
-                <div class="row" style="width:850px;margin-right: 20px;margin-left:30px;margin-top:10px;font-size: 18px;">
-
-                    <div class="col-md-6 col-md-6 col-md-6">
+                <div class="row" style="width:850px;margin-right: 20px;margin-left:19px;margin-top:10px;font-size: 18px;">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label for="end_date">تاریخ پایان :</label>
-                            <input tabindex="4" type="text" name="end_date" id="end_date" value="{{old('end_date')}}"  class="form-control input-md floatlabel" dir="rtl" placeholder="تاریخ پایان">
-                            <small style="color: red;">@foreach($errors->get('birth_date') as $message ) {{$message}}   @endforeach</small>
-                            <small id="end_date_warn" style="display: none;color: red;">فرمت تاریخ صحیح نیست</small>
+                            <label for="start_date">Starts at :</label>
+                            <input tabindex="4" type="text" name="start_date" id="start_date" value="{{old('start_date')}}"  class="form-control input-md floatlabel" placeholder="start's date">
+                            <small style="color: red;">@foreach($errors->get('birth_date2') as $message ) {{$message}}   @endforeach</small>
+                            <small id="bdwarn" style="display: none;color: red;">date format is invalid</small>
                         </div>
                     </div>
-
-                    <div class="col-md-6 col-md-6 col-md-6">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label for="start_date">تاریخ شروع :</label>
-                            <input tabindex="4" type="text" name="start_date" id="start_date" value="{{old('start_date')}}"  class="form-control input-md floatlabel" dir="rtl" placeholder="تاریخ شروع">
-                            <small style="color: red;">@foreach($errors->get('birth_date2') as $message ) {{$message}}   @endforeach</small>
-                            <small id="bdwarn" style="display: none;color: red;">فرمت تاریخ صحیح نیست</small>
+                            <label for="end_date">Ends at :</label>
+                            <input tabindex="4" type="text" name="end_date" id="end_date" value="{{old('end_date')}}"  class="form-control input-md floatlabel" placeholder="end's date">
+                            <small style="color: red;">@foreach($errors->get('birth_date') as $message ) {{$message}}   @endforeach</small>
+                            <small id="end_date_warn" style="display: none;color: red;">date format is invalid</small>
                         </div>
                     </div>
                 </div>
-
                 <div class="row" style="width:850px;margin-right: 35px;margin-left:30px;margin-top:10px;font-size: 18px;">
                     <div class="feedback left">
                         <div class="tooltips">
                             <div class="btn-group">
 
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    توضیحات ( اختیاری )
+                                    message ( optional )
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right dropdown-menu-form" style="width: 100%">
                                     <li>
@@ -112,42 +105,31 @@
                                             <i id="approve_loading" style="text-align:center;font-size:24px;"></i>
                                         </div>
                                         <div class="btn-group" style="width: 100%">
-                                            <button type="button" id="send_message_to_admin_button" class="btn btn-default" style="width: 50%"><i class="fa fa-remove"></i> صرف نظر </button>
-                                            <button type="button" class="btn btn-default" style="width: 50%"><i class="fa fa-send"></i> ارسال پیام </button>
+                                            <button type="button" id="send_message_to_admin_button" class="btn btn-default" style="width: 50%"><i class="fa fa-remove"></i>reject</button>
+                                            <button type="button" class="btn btn-default" style="width: 50%"><i class="fa fa-send"></i>send message</button>
                                         </div>
                                     </li>
                                 </ul>
-                                <a class="btn btn-success" id="add_content_images">اضافه کردن عکس ها</a>
+                                <a class="btn btn-success" id="add_content_images">Add Photos</a>
                                 <h4 id="mission"></h4>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
                 <br>
-
                 <progress id="updateProg" max="100" value="0" style="display: none;direction: ltr"></progress>
-
-                <div class="row modal-footer" style="margin-right: 50px;margin-left:50px;font-size: 18px;">
-
-                    <div class="col-md-9">
-                        <div class="form-group">
-                            <input type="button" value="بازگشت" onclick="closecontent()" class="btn btn-danger btn-block"  />
+                <div class="row" style="font-size: 18px;width: 100%;margin:15px auto">
+                    <div class="col-md-6" style="width: 50%;">
+                        <div>
+                            <input type="button" value="Back" data-dismiss="modal" onclick="closecontent()" class="btn btn-danger btn-block"  />
                         </div>
                     </div>
-
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <input type="submit" name="submit" value="ذخیره" class="btn btn-success btn-block">
+                    <div class="col-md-6" style="width: 50%;">
+                        <div>
+                            <input type="submit" name="submit" value="Submit" class="btn btn-success btn-block">
                         </div>
                     </div>
-
-
-
                 </div>
-
             </form>
         </div>
     </div>

@@ -1,106 +1,99 @@
 @include('ajax.UpdateContent')
 @include('ajax.AddContentImages')
-@extends('Layouts.UpdeRegis')
-@section('URS')
+@extends('Layouts.englishHeader')
+@section('ContentsOfTheSite')
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{asset('css\datepicker.css')}}" />
+    <link rel="stylesheet" href="{{asset('css\cropIt.css')}}"/>
+    <link rel="stylesheet" href="{{asset('css\modalConfigs.css')}}" />
+    <link rel="stylesheet" href="{{asset('css\dropDownForUsersPage.css')}}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{{asset('js\ImageCropShow.js')}}"></script>
+    <script src="{{asset('js\rejs.js')}}"></script>
+    <script src="{{asset('js\cropit.js')}}"></script>
+    <script src="{{asset('js\showHideModals.js')}}" ></script>
+<style>
         .modal { overflow: auto !important; }
-
         .bd-example-modal-lg .modal-dialog{
             display: table;
             position: relative;
             margin: 0 auto;
             top: calc(50% - 24px);
         }
-
         .bd-example-modal-lg .modal-dialog .modal-content{
             background-color: transparent;
             border: none;
         }
-
         .btn span.glyphicon {
             opacity: 0;
         }
         .btn.active span.glyphicon {
             opacity: 1;
         }
-    </style>
-    <script>
-        function modal(){
-            $('#doloading').modal('show');
-        }
-        function hidmodal() {
-            $('#doloading').modal('hide');
-        }
-    </script>
+</style>
     <div id="doloading" class="modal fade bd-example-modal-lg" data-backdrop="static" data-keyboard="false" tabindex="-1">
         <div class="modal-dialog modal-sm">
-            <div class="modal-content" style="width: 48px">
+            <div class="modal-content" style="width: 48px;visibility: visible;position: static;top:auto">
                 <span class="fa fa-spinner fa-spin fa-3x"></span>
             </div>
         </div>
     </div>
-
     <div class="alert alert-success" id="success-alert" style="display: none">
-        <strong>محتوا ذخیر شد</strong>
+        <strong>Content saved</strong>
         <br>
-        <strong>لطفا منتظر تایید محتوا باشید</strong>
+        <strong>please wait for admin approval</strong>
     </div>
 
     <div class="alert alert-danger" id="warning-alert" style="display: none">
-        <strong>محتوای مورد نظر یافت نشد</strong>
+        <strong>Content could not be found</strong>
     </div>
 
     <div class="alert alert-danger" id="remove-alert" style="display: none">
-        <strong>محتوای مورد نظر حذف شد</strong>
+        <strong>Content removed</strong>
     </div>
 
     <div class="alert alert-warning" id="access-alert" style="display: none">
-        <strong>شما اجازه ی دسترسی به کاربران دیگر را ندارید</strong>
+        <strong>you do not have access to other users</strong>
     </div>
 
     <div class="alert alert-warning" id="create-alert" style="display: none">
-        <strong>شما اجازه ی ایجاد محتوا ندارید ، لطفا منتظر تایید بمانید</strong>
+        <strong>you are not allowed to create content, please wait ...</strong>
     </div>
     <br>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-md-offset-2 " style="margin: 0 auto;padding-top: 30px"><br>
-                <div class="panel panel-default border text-right">
-                    <div class="panel-heading text-center border body">پیام ها</div>
+                <div class="panel panel-default border" style="margin-right: 30px !important;">
+                    <div class="panel-heading text-center border body">Messages ( click on your message )</div>
                     <div class="panel-body" id="posts">
                         <table class="table table-bordered" id="content_section_table">
                             <thead>
                             <tr>
-
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">وضعیت محتوا</th>
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">پیام مدیریت</th>
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">پیام کاربر</th>
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">نام کاربری</th>
-                                <th class="text-center" style="font-size: 12px;font-weight: bold">نام</th>
-
+                                <th class="text-center" style="font-size: 12px;font-weight: bold">Content status</th>
+                                <th class="text-center" style="font-size: 12px;font-weight: bold">Admin message</th>
+                                <th class="text-center" style="font-size: 12px;font-weight: bold">User message</th>
+                                <th class="text-center" style="font-size: 12px;font-weight: bold">Username</th>
+                                <th class="text-center" style="font-size: 12px;font-weight: bold">Name</th>
                             </tr>
                             </thead>
                             <tbody id="content-info" class="text-center" style="font-size: 12px;">
                             @if(\App\Http\Controllers\PermissionController::This_is_Admin_or_ContentManager())
                                 @foreach($messages as $message)
-
                                     <tr id="{{$message->id}}" style="cursor: pointer" onclick="showMessages({{$message->id}})"
                                         @if($message->admin_seen == 0) bgcolor="#EEE" @endif
                                         @if(\App\Http\Controllers\AjaxMessageController::change_message_color($message->id) == 1) bgcolor=#E7FFE5 @endif
                                         @if(\App\Http\Controllers\AjaxMessageController::change_message_color($message->id) == 2) bgcolor=#FFEBE5 @endif
                                         @if(\App\Http\Controllers\AjaxMessageController::change_message_color($message->id) == 0) bgcolor=#FFFFFF @endif
                                     >
-
                                         <td style="font-size: 12px" id="message_status">{{\App\Http\Controllers\AjaxMessageController::check_the_status_of_content_for_messages_page($message->id)}}</td>
                                         <td style="font-size: 12px">{{$message->user_message}}</td>
                                         <td style="font-size: 12px">{{$message->admin_message}}</td>
                                         <td style="font-size: 12px" id="user_username">{{$message->username}}</td>
                                         <td style="font-size: 12px" id="user_nameAndfamily">{{$message->name}} {{$message->family}}</td>
-
                                     </tr>
-
                                 @endforeach
                             @endif
                             </tbody>
@@ -120,46 +113,37 @@
     <div class="container" id="approveOptions" style="display: none">
         <div class="row">
             <div class="col-md-12 col-md-offset-2 " style="margin: 0 auto;padding-top: 30px"><br>
-                <div class="panel panel-default border text-right">
-                    <div class="panel-heading text-center border body"><i id="loading_approve_progress_for_message_show" style="font-size:24px;margin: 10px"></i>پاسخ و تایید</div>
+                <div class="panel panel-default border" style="margin-right: 30px !important;">
+                    <div class="panel-heading text-center border body"><i id="loading_approve_progress_for_message_show" style="font-size:24px;margin: 10px"></i>َApprove & Answer</div>
                     <div class="panel-body" id="posts">
-                        <textarea name="admin_comment" dir="rtl"  id="admin_comment" readonly="true" disabled  maxlength="250" style="resize: none;width: 45%;height: 150px;margin-left: 5%" placeholder="در صورت تمایل میتوانید توضیحات را وارد کنید . این توضیحات به صورت پیام برای کاربر ارسال خواهد شد"></textarea>
-                        <textarea name="user_comment" dir="rtl"  id="user_comment" maxlength="250" style="resize: none;width: 45%;height: 150px;margin-right: 4.5%" placeholder="در صورت تمایل میتوانید توضیحات را وارد کنید . این توضیحات به صورت پیام برای کاربر ارسال خواهد شد"></textarea>
+                        <textarea name="user_comment"  id="user_comment" maxlength="250" style="resize: none;width: 48%;height: 150px;" placeholder="you may write your message here, your message would be sent to user"></textarea>
+                        <textarea name="admin_comment" id="admin_comment" readonly="true" disabled  maxlength="250" style="resize: none;width: 48%;height: 150px;margin-left: 2%" placeholder="you may write your message here, your message would be sent to user"></textarea>
                         <input type="hidden" id="id">
                         <br>
-
-                        <label>
-                            <button type="button" class="btn btn-info" style="margin-right: 20%" id="show_user_content" onclick="showUpdateContent()" value="ارسال پیام">محتوای مربوط به این پیام</button>
-                        </label>
-
-                        <div class="btn-group" data-toggle="buttons" style="margin-right: 5%">
-
-                            <label class="btn btn-success" id="ap"> تایید محتوا
-                                <input type="radio" name="opt"  id="approve_user_content_message" value="1" autocomplete="off">
-                                <span class="glyphicon glyphicon-ok"></span>
-                            </label>
-
-
-                            <label class="btn btn-warning" id="ed">رد و ارسال پیام
-                                <input type="radio" name="opt"  id="approve_user_content_message" value="2" autocomplete="off">
-                                <span class="glyphicon glyphicon-ok"></span>
-                            </label>
-
-                            <label class="btn btn-danger" id="re">حذف
-                                <input type="radio" name="opt" id="RemoveThisUserContent" value="3" autocomplete="off">
-                                <span class="glyphicon glyphicon-ok"></span>
-                            </label>
-
+                        <div class="btn-group" data-toggle="buttons">
+                            <div>
+                                <label class="btn btn-success" id="ap">Approve content
+                                    <input type="radio" name="opt" checked  id="approve_user_content_message" value="1" autocomplete="off">
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                </label>
+                                <label class="btn btn-warning" id="ed">Reject & Message
+                                    <input type="radio" name="opt"  id="approve_user_content_message" value="2" autocomplete="off">
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                </label>
+                                <label class="btn btn-danger" id="re">Remove
+                                    <input type="radio" name="opt" id="RemoveThisUserContent" value="3" autocomplete="off">
+                                    <span class="glyphicon glyphicon-ok"></span>
+                                </label>
+                            </div>
                             <label>
-                                <button type="button" class="btn btn-success" style="margin-left: 20%" id="approve_or_dismiss" value="تایید">تایید</button>
+                                <button type="button" class="btn btn-default" id="show_user_content" onclick="showUpdateContent()" value="send message" style="border: 1px dashed black;margin-top:4px;">See Relative Content</button>
                             </label>
-
-
-                        </div>
+                        </div><br/><br/>
+                        <button type="button" class="btn btn-success" id="approve_or_dismiss" value="Submit & Send" style="margin: 0 auto">Submit The Operation</button>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
 

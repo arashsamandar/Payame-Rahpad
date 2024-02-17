@@ -93,7 +93,7 @@ class LoginController extends Controller
             $logdata['Reserved1'] = $myuser1->id;
             $logdata['Reserved2'] = $myuser1->id;
             $logs->insert($logdata);
-            return view('auth.login',['usincorrect' => 'password is incorrect']);
+            return view('auth.loginEnglish',['usincorrect' => 'password is incorrect']);
 
         } elseif(empty($myuser1)) {
 

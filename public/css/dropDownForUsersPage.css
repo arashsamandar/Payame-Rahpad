@@ -1,0 +1,11 @@
+@media screen and (max-width: 990px) {
+    .container .user-image {
+        padding-right: 10px;
+        display: block !important;
+        /*text-align: right;*/
+    }
+    .ftco-navbar-light .navbar-toggler {
+        float:right;
+        padding-top:0;
+    }
+}

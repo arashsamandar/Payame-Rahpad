@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Azonix';
+    src: url("../fonts/Azonix.otf") format('opentype');
+    font-display: block;
+}
+
+.heading-section {
+    font-family: 'Azonix', Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    color: #000;
+}
+
+body {
+    font-family: 'Azonix', Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    color: #000;
+}

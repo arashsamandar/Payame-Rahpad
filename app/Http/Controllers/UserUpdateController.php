@@ -29,17 +29,34 @@ class UserUpdateController extends Controller
         return view('Layouts.changepass',['imagetypes' => $imagetype]);
     }
 
-    public function changepass() {
+    public function changepass(Request $request) {
+
+        $request->validate([
+            'password' => 'required|confirmed|max:25',
+            'password_confirmation' => 'required|max:25',
+        ],
+            [
+                'password.required' => 'password is required',
+                'password.confirmed' => '"password" and "password repeat" do not match',
+                'password_confirmation.required' => 'password confirmation required',
+            ]);
+
         $pass = $this->request->get('password');
         $passconf = $this->request->get('password_confirmation');
 
-        if(trim($pass) === trim($passconf)) {
+        if((trim($pass) === trim($passconf)) && !is_null(\Auth::user())) {
             \Auth::user()->password = \Hash::make($pass);
             \Auth::user()->save();
             \Auth::logout();
             return redirect('login');
+        } elseif(\Auth::guard('admin')->check()){
+            $admin = \Auth::guard('admin')->user();
+            $admin->password = \Hash::make($pass);
+            $admin->save();
+            \Auth::guard('admin')->logout();
+            return redirect()->route('admin.login');
         } else {
-            return false;
+            return view('home');
         }
     }
 
@@ -57,33 +74,14 @@ class UserUpdateController extends Controller
             'name' => 'required|max:25',
             'family' => 'required|max:25',
             'email' => 'required|email|max:40',
-            'birth_date' => 'required|date',
-            'national_code' => 'required|numeric|max:9999999999',
-            'gender' => 'required|max:4',
-            'cell_phone' => 'required|numeric|max:99999999999',
             'userimage' => 'image|mimes:jpeg,png,jpg|max:2048'
-        ],
+            ],
             [
                 'name.required' => 'name is required',
                 'name.max' => 'cant be more than 25 characters long',
 
                 'family.required' => 'family is required',
                 'family.max' => 'cant be more than 25 characters long',
-
-                'birth_date.required' => 'birth-date is required',
-                'birth_date.date' => 'birth-date invalid format',
-
-                'national_code.required' => 'national code is required',
-                'national_code.unique' => 'national code already taken',
-                'national_code.max' => 'national code cant be more than 10 characters long',
-                'national_code.numeric' => 'national code cant have letters',
-
-                'cell_phone.required' => 'phone number is required',
-                'cell_phone.numeric' => 'phone number cant have letters',
-                'cell_phone.max' => 'phone number cant be more than 11 numbers',
-
-                'gender.max' => 'gender cant be more than 4 characters',
-                'gender.required' => 'gender is required',
 
                 'email.required' => 'email address is required',
                 'email.unique' => 'email address already taken',
@@ -98,10 +96,6 @@ class UserUpdateController extends Controller
 
         \Auth::user()->name = $request->input('name');
         \Auth::user()->family = $request->input('family');
-        \Auth::user()->birth_date = $request->input('birth_date');
-        \Auth::user()->gender = $request->input('gender');
-        \Auth::user()->national_code = $request->input('national_code');
-        \Auth::user()->cell_phone = $request->input('cell_phone');
         \Auth::user()->email = $request->input('email');
 
         if($this->request->get('image-data')) {
