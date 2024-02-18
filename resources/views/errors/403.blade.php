@@ -1,8 +1,8 @@
-@extends('Layouts.UpdeRegis')
-@section('URS')
+@extends('Layouts.englishHeader')
+@section('ContentsOfTheSite')
+<title>Error 403</title>
 
-
-    <div>صحفه ی مورد نظر وجود ندارد</div>
+    <div>Page Does Not Exist ...!</div>
 
 
 @endsection

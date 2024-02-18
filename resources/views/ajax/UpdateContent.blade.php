@@ -224,12 +224,12 @@
                 <div class="row" style="font-size: 18px;width: 100%;margin:0 auto">
                     <div class="col-md-6" style="width: 50%;">
                         <div>
-                            <input type="button" value="Back" data-dismiss="modal" class="btn btn-danger btn-block"  />
+                            <input id="updateBackButton" type="button" value="Back" data-dismiss="modal" class="btn btn-danger btn-block"  />
                         </div>
                     </div>
                     <div class="col-md-6" style="width: 50%;">
                         <div>
-                            <input type="submit" name="submit" value="Update" class="btn btn-success btn-block">
+                            <input id="updateSubmitButton" type="submit" name="submit" value="Update" class="btn btn-success btn-block">
                         </div>
                     </div>
                 </div>

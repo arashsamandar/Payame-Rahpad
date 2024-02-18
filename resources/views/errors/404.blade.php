@@ -1,5 +1,6 @@
-@extends('Layouts.UpdeRegis')
-@section('URS')
+@extends('Layouts.englishHeader')
+@section('ContentsOfTheSite')
+    <title>Not Found 404</title>
 <style>
     html, body {
         height: 100%;

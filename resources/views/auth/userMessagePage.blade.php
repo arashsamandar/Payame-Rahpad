@@ -97,7 +97,7 @@
         <div class="row">
             <div class="col-md-12 col-md-offset-2 " style="margin: 0 auto;padding-top: 30px"><br>
                 <div class="panel panel-default border text-right">
-                    <div class="panel-heading text-center border body"><i id="loading_approve_progress" style="font-size:24px;margin: 10px"></i>پاسخ و تایید</div>
+                    <div class="panel-heading text-center border body"><i id="loading_approve_progress" style="font-size:24px;margin: 10px"></i>Answer & Confirm</div>
                     <div class="panel-body" id="posts">
                         <textarea name="user_comment" id="admin_comment" maxlength="250" style="resize: none;width: 45%;height: 150px;margin-left: 4.5%" placeholder="you may add your message here. this message would be sent to admin of the site"></textarea>
                         <textarea name="admin_comment" id="user_comment" readonly="true" disabled  maxlength="250" style="resize: none;width: 45%;height: 150px;margin-right: 5%" placeholder="you may add your message here. this message would be sent to admin of the site"></textarea>
@@ -224,6 +224,7 @@
                         $('#frm-updatecontentform').find('#savecontent').css('display','none');
                         $('#frm-updatecontentform').find('#add_content_imagess').css('display','none');
                         $('#frm-updatecontentform').find('#user_comments').css('display','none');
+                        $('#frm-updatecontentform').find('#updateSubmitButton').css('display','none');
                         if (data.definition === '') {
                             tinyMCE.activeEditor.setContent('');
                         }

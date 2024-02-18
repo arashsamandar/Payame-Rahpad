@@ -96,12 +96,12 @@
                             <div class="btn-group">
 
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    message ( optional )
+                                    Message ( optional )
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right dropdown-menu-form" style="width: 100%">
                                     <li>
                                         <div class="report">
-                                            <textarea name="comment" maxlength="250" style="width: 100%;height: 100%"></textarea>
+                                            <textarea name="comment" maxlength="250" style="width: 100%;height: 100%;font-size: 0.75em"></textarea>
                                             <i id="approve_loading" style="text-align:center;font-size:24px;"></i>
                                         </div>
                                         <div class="btn-group" style="width: 100%">

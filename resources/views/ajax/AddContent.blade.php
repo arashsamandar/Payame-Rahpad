@@ -239,9 +239,9 @@
                         })).append($('<td/>',{
                             text:data.Begin_at
                         })).append($('<td/>',{
-                            text:data.page_address
-                        })).append($('<td/>',{
                             text:data.input_at
+                        })).append($('<td/>',{
+                            text:data.page_address
                         })).append($('<td/>',{
                             text:data.brief
                         })).append($('<td/>',{
@@ -461,9 +461,9 @@
                         })).append($('<td/>', {
                             text: data.Begin_at
                         })).append($('<td/>', {
-                            text: data.page_address
-                        })).append($('<td/>', {
                             text: data.input_at
+                        })).append($('<td/>', {
+                            text: data.page_address
                         })).append($('<td/>', {
                             text: data.brief
                         })).append($('<td/>', {

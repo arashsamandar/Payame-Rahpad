@@ -1,6 +1,5 @@
-@extends('Layouts.UpdeRegis')
-
-@section('URS')
+@extends('Layouts.englishHeader')
+@section('ContentsOfTheSite')
 
 <div style="width: 100%;height: auto;margin: 50px auto;border:#eee solid 1px;border-radius: 5px;">
         <h3

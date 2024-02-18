@@ -348,7 +348,9 @@ class AjaxContentController extends Controller
                 array_push($decoded_content_array, $color_code);
                 return response($decoded_content_array);
             }
+            return redirect()->route('home');
         }
+        return redirect()->route('home');
     }
 
     public function showContentImages(Request $request)
