@@ -6,15 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b0dbd0e0-3a99-4867-a59b-7543e5b75998" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AjaxContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AjaxContentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ajax/AddContent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ajax/AddContent.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ajax/NewContentAdd.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ajax/NewContentAdd.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/ajax/UpdateContent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/ajax/UpdateContent.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/userMessagePage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/userMessagePage.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dynamicPages.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dynamicPages.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/errors/403.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/errors/403.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/errors/404.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/errors/404.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/errors/500.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/errors/500.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +44,7 @@
     <setting file="file://$PROJECT_DIR$/public/js/showHideModals.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/resources/views/Layouts/app3.blade.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/resources/views/Layouts/englishHeader.blade.php" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/resources/views/ajax/AddContent.blade.php" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/resources/views/ajax/pagination.blade.php" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -461,7 +453,10 @@
       <workItem from="1707755336474" duration="5407000" />
       <workItem from="1707902843697" duration="25969000" />
       <workItem from="1708082235189" duration="28173000" />
-      <workItem from="1708269740024" duration="690000" />
+      <workItem from="1708269740024" duration="2038000" />
+      <workItem from="1708424702186" duration="1946000" />
+      <workItem from="1708700909802" duration="92000" />
+      <workItem from="1714706046893" duration="161000" />
     </task>
     <servers />
   </component>
