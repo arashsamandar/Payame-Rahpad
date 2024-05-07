@@ -100,24 +100,27 @@
         </nav>
         <!-- END nav - Still Ftco-section -->
         @yield('ContentsOfTheSite')
-        <div class="footer">
-            <div>
-                <a href="https://www.facebook.com" class="imghover">
+        <div class="footer" style="position: relative">
+            <div style="float: left">
+                <a href="https://www.facebook.com/TheArcherss" class="imghover">
                 <img src="{{asset('/images/facebook-color.svg')}}" width="30px" height="30px" />
                 </a>
-                <a href="https://www.linkedin.com" class="imghover">
+                <a href="https://www.linkedin.com/in/arash-samandar-0288b4160/" class="imghover">
                 <img src="{{asset('/images/linkedin.svg')}}" width="30px" height="30px" />
                 </a>
-                <a href="https://www.instagram.com" class="imghover">
+                <a href="https://www.instagram.com/arash_sedaghat" class="imghover">
                 <img src="{{asset('/images/instagram2.svg')}}" width="30px" height="30px" />
                 </a>
                 <a href="https://www.github.com/arashsamandar" class="imghover">
                 <img src="{{asset('/images/github-desktop.svg')}}" width="30px" height="30px" />
                 </a>
-                <a href="https://www.gmail.com" class="imghover">
+                <a href="mailto:arash.internet@gmail.com" class="imghover">
                 <img src="{{asset('/images/gmail.svg')}}" width="30px" height="30px" />
                 </a>
+            </div>
+            <div class="footerText">
                 ©Arash Salamander 2013-2024
+            </div>
             </div>
         </div>
     </div>

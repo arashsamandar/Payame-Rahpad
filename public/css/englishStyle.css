@@ -265,13 +265,26 @@ h1, h2, h3, h4, h5,
     .col-md-4.lastOne {
         display: none;
     }
+    .footerText {
+        position: relative;
+        float: right;
+        font-size: 0.8em;
+        margin-left: 30px;
+    }
 }
 @media screen and (max-width: 500px){
     .carousel-inner {
         min-height: 230px !important;
     }
+    /*.footerText {*/
+    /*    display: none;*/
+    /*}*/
 }
 /******************************************** Footer ******************************************************/
+.footerText {
+    position: absolute;
+    left: 36%
+}
 .footer {
     font-family: 'Azonix', Arial, Helvetica, sans-serif;
     font-size: 1em;
@@ -279,7 +292,6 @@ h1, h2, h3, h4, h5,
     color: black;
     height: 83px;
     margin-top: 10px;
-    text-align: center;
     padding: 20px;
     padding-top: 2em;
     -webkit-box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34);
