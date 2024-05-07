@@ -101,7 +101,7 @@
         @yield('ContentsOfTheSite')
         <div class="footer">
             <div>
-                here goes your footer as of now
+                ©Arash Salamander 2024
             </div>
         </div>
     </div>
