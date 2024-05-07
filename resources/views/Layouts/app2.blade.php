@@ -78,24 +78,24 @@
             <div class="col-md-4">
                 <div class="image-container">
                     <a href="#">
-                        <img src="{{asset('images/none.jpg')}}" alt="arashTalentOne" />
-                        <div class="caption">Caption 1</div>
+                        <img src="{{asset('images/ntwo.jpg')}}" alt="arashTalentOne" />
+                        <div class="caption">UI Front Technologies</div>
                     </a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="image-container">
-                    <a href="#">
-                        <img src="{{asset('images/ntwo.jpg')}}" alt="arashTalentOne" />
-                        <div class="caption">Caption 2</div>
+                    <a href="https://github.com/arashsamandar">
+                        <img src="{{asset('images/Logo_of_Github.jpg')}}" alt="arashTalentOne" />
+                        <div class="caption">Git Repositories</div>
                     </a>
                 </div>
             </div>
             <div class="col-md-4 lastOne">
                 <div class="image-container">
                     <a href="#">
-                    <img src="{{asset('images/nthree.jpg')}}" alt="arashTalentOne" />
-                    <div class="caption">Caption 3</div>
+                    <img src="{{asset('images/BackEnd-Tech.jpg')}}" alt="arashTalentOne" />
+                    <div class="caption">Back End Technologies</div>
                     </a>
                 </div>
             </div>
