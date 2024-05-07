@@ -77,7 +77,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="image-container">
-                    <a href="#">
+                    <a href="/tech-stack">
                         <img src="{{asset('images/ntwo.jpg')}}" alt="arashTalentOne" />
                         <div class="caption">UI Front Technologies</div>
                     </a>
@@ -93,7 +93,7 @@
             </div>
             <div class="col-md-4 lastOne">
                 <div class="image-container">
-                    <a href="#">
+                    <a href="/tech-stack">
                     <img src="{{asset('images/BackEnd-Tech.jpg')}}" alt="arashTalentOne" />
                     <div class="caption">Back End Technologies</div>
                     </a>
