@@ -101,7 +101,7 @@
         @yield('ContentsOfTheSite')
         <div class="footer">
             <div>
-                ©Arash Salamander 2024
+                ©Arash Salamander 2013-2024
             </div>
         </div>
     </div>
