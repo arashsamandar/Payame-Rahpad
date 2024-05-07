@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0dbd0e0-3a99-4867-a59b-7543e5b75998" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/facebook-color.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/facebook2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/github-desktop.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/gmail.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/instagram.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/instagram2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/linkedin.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/app2.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/app2.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/MainPages/techstack.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/MainPages/techstack.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/englishStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/englishStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/englishHeader.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/englishHeader.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +175,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "partOne-changeUI",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/Programmer-Codes/Laravel/Payame-Rahpad-Two-ui/Payame-Rahpad/public/AdminLogin/fonts",
+    "last_opened_file_path": "E:/Programmer-Codes/Laravel/Payame-Rahpad-Two-ui/Payame-Rahpad/public/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -186,9 +193,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Programmer-Codes\Laravel\Payame-Rahpad-Two-ui\Payame-Rahpad\public\images" />
       <recent name="E:\Programmer-Codes\Laravel\Payame-Rahpad-Two-ui\Payame-Rahpad\public\AdminLogin\fonts" />
       <recent name="E:\Programmer-Codes\Laravel\Payame-Rahpad-Two-ui\Payame-Rahpad\public\AdminLogin\css" />
-      <recent name="E:\Programmer-Codes\Laravel\Payame-Rahpad-Two-ui\Payame-Rahpad\public\images" />
       <recent name="E:\Programmer-Codes\Laravel\Payame-Rahpad-Two-ui\Payame-Rahpad\public" />
       <recent name="E:\Laravel_Projects\pr\public\images" />
     </key>
@@ -459,7 +466,7 @@
       <workItem from="1708424702186" duration="1946000" />
       <workItem from="1708700909802" duration="92000" />
       <workItem from="1714706046893" duration="161000" />
-      <workItem from="1715085825100" duration="9888000" />
+      <workItem from="1715085825100" duration="13258000" />
     </task>
     <servers />
   </component>

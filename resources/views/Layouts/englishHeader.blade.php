@@ -102,6 +102,21 @@
         @yield('ContentsOfTheSite')
         <div class="footer">
             <div>
+                <a href="https://www.facebook.com" class="imghover">
+                <img src="{{asset('/images/facebook-color.svg')}}" width="30px" height="30px" />
+                </a>
+                <a href="https://www.linkedin.com" class="imghover">
+                <img src="{{asset('/images/linkedin.svg')}}" width="30px" height="30px" />
+                </a>
+                <a href="https://www.instagram.com" class="imghover">
+                <img src="{{asset('/images/instagram2.svg')}}" width="30px" height="30px" />
+                </a>
+                <a href="https://www.github.com/arashsamandar" class="imghover">
+                <img src="{{asset('/images/github-desktop.svg')}}" width="30px" height="30px" />
+                </a>
+                <a href="https://www.gmail.com" class="imghover">
+                <img src="{{asset('/images/gmail.svg')}}" width="30px" height="30px" />
+                </a>
                 ©Arash Salamander 2013-2024
             </div>
         </div>
