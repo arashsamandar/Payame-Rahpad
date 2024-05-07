@@ -142,21 +142,17 @@ Route::get('/about-me',function() {
     return view('MainPages.arash-about',['page_title' => 'About Me Arash']);
 })->name('aboutUs');
 //
-//Route::get('/service',function (){
-//   return view('MainPages.ourServices',['page_title' => 'خدمات کانون تبلیغاتی پیام رهپاد']);
-//})->name('ourServices');
+Route::get('/application-tutorial',function (){
+   return view('MainPages.application',['page_title' => 'Arash Personal CMS']);
+})->name('ourServices');
 //
-//Route::get('/contact-us',function (){
-//    return view('MainPages.contactUs',['page_title' => 'تماس با کانون تبلیغاتی پیام رهپاد']);
-//})->name('contactUs');
+Route::get('/contacts',function (){
+    return view('MainPages.contacts',['page_title' => 'contact arash']);
+})->name('contactUs');
 //
-//Route::get('Sharpad-project',function (){
-//    return view('MainPages.ShahrPaad',['page_title' => 'پروژه شهرپاد']);
-//})->name('ShahrPaad');
-//
-//Route::get('Urban-Adds',function (){
-//    return view('MainPages.UrbanManagementAdd',['page_title' => 'آگهی نامه مدیریت شهری']);
-//})->name('UrbanManagementAdd');
+Route::get('/tech-stack',function (){
+    return view('MainPages.techstack',['page_title' => 'Arash Tech Stacks']);
+})->name('ShahrPaad');
 
 //-------------------------------- Error Pages ---------------------------------
 

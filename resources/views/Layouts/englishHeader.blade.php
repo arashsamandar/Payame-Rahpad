@@ -91,8 +91,9 @@
                     <ul class="navbar-nav mr-auto ml-auto" >
                         <li class="nav-item"><a href="{{route('home')}}" class="nav-link">HOME</a></li>
                         <li class="nav-item"><a href="/about-me" class="nav-link">ABOUT</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">SITES</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">CONTACTS</a></li>
+                        <li class="nav-item"><a href="/application-tutorial" class="nav-link">Document</a></li>
+                        <li class="nav-item"><a href="/contacts" class="nav-link">CONTACTS</a></li>
+                        <li class="nav-item"><a href="/tech-stack" class="nav-link">Tech Stack</a></li>
                     </ul>
                 </div>
             </div>
