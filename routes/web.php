@@ -138,25 +138,25 @@ Route::get('/UserMessageViewAndSend','AjaxMessageController@UserMessageControlle
 
 //------------------------------- Site Pages -----------------------------------------
 
-Route::get('/about-us',function() {
-    return view('MainPages.aboutUs',['page_title' => 'درباره کانون تبلیغاتی پیام رهپاد']);
+Route::get('/about-me',function() {
+    return view('MainPages.arash-about',['page_title' => 'About Me Arash']);
 })->name('aboutUs');
-
-Route::get('/service',function (){
-   return view('MainPages.ourServices',['page_title' => 'خدمات کانون تبلیغاتی پیام رهپاد']);
-})->name('ourServices');
-
-Route::get('/contact-us',function (){
-    return view('MainPages.contactUs',['page_title' => 'تماس با کانون تبلیغاتی پیام رهپاد']);
-})->name('contactUs');
-
-Route::get('Sharpad-project',function (){
-    return view('MainPages.ShahrPaad',['page_title' => 'پروژه شهرپاد']);
-})->name('ShahrPaad');
-
-Route::get('Urban-Adds',function (){
-    return view('MainPages.UrbanManagementAdd',['page_title' => 'آگهی نامه مدیریت شهری']);
-})->name('UrbanManagementAdd');
+//
+//Route::get('/service',function (){
+//   return view('MainPages.ourServices',['page_title' => 'خدمات کانون تبلیغاتی پیام رهپاد']);
+//})->name('ourServices');
+//
+//Route::get('/contact-us',function (){
+//    return view('MainPages.contactUs',['page_title' => 'تماس با کانون تبلیغاتی پیام رهپاد']);
+//})->name('contactUs');
+//
+//Route::get('Sharpad-project',function (){
+//    return view('MainPages.ShahrPaad',['page_title' => 'پروژه شهرپاد']);
+//})->name('ShahrPaad');
+//
+//Route::get('Urban-Adds',function (){
+//    return view('MainPages.UrbanManagementAdd',['page_title' => 'آگهی نامه مدیریت شهری']);
+//})->name('UrbanManagementAdd');
 
 //-------------------------------- Error Pages ---------------------------------
 

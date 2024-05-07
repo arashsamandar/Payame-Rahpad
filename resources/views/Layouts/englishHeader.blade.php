@@ -90,7 +90,7 @@
                 <div id="ftco-nav" class="collapse navbar-collapse CustomFont @if(Auth::user() || Auth::guard('admin')->check()) mainMenuPaddingLeft @endif">
                     <ul class="navbar-nav mr-auto ml-auto" >
                         <li class="nav-item"><a href="{{route('home')}}" class="nav-link">HOME</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">ABOUT</a></li>
+                        <li class="nav-item"><a href="/about-me" class="nav-link">ABOUT</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">SITES</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">CONTACTS</a></li>
                     </ul>
