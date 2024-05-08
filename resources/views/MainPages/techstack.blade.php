@@ -16,7 +16,10 @@
 
         <div class="pageContent_InnerDiv">
             Hello and Welcome to my personal website :<br>
-            my name is arash i am 35 and i am a freelancer<br><br>
+            My name is arash i am 35 and i am a freelancer<br>
+            Bellow you can see a recent list of the technologies i have worked with <br>( The technologies i have worked for but forgot are not listed otherwise the list would be much longer )
+
+            <br><br>
 
             <span style="font-weight: bold">Servers & OS  &nbsp;</span>
             <i class="fab fa-windows glyph-sample" style="font-size: 3em"></i>
@@ -39,8 +42,9 @@
             <span style="font-weight: bold">Frameworks &nbsp;</span>
             <i class="icon-bootstrap glyph-sample" style="font-size: 3em"></i>
             <i class="icon-jquery glyph-sample" style="font-size: 3em"></i>
-            <i class="icon-reactjs glyph-sample" style="font-size: 3em"></i>
             <i class="icon-laravel glyph-sample" style="font-size: 3em"></i>
+            <i class="icon-reactjs glyph-sample" style="font-size: 3em"></i>
+            <img style="vertical-align:baseline" src="{{asset('/images/nextjs.webp')}}" width="6%" alt="next.js" />
             <br><br>
 
             <span style="font-weight: bold">Programming Languages &nbsp;</span>
