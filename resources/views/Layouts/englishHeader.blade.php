@@ -108,7 +108,7 @@
                 <a href="https://www.linkedin.com/in/arash-samandar-0288b4160/" class="imghover">
                 <img src="{{asset('/images/linkedin.svg')}}" width="30px" height="30px" />
                 </a>
-                <a href="https://www.instagram.com/arash_sedaghat" class="imghover">
+                <a href="https://www.instagram.com/arash_sedaghat" class="hideAtLowSize imghover">
                 <img src="{{asset('/images/instagram2.svg')}}" width="30px" height="30px" />
                 </a>
                 <a href="https://www.github.com/arashsamandar" class="imghover">
