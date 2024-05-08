@@ -283,6 +283,14 @@ h1, h2, h3, h4, h5,
         margin-left: 17%;
     }
 }
+@media screen and (max-width: 400px){
+    .footerText {
+        position: relative;
+        float: right;
+        font-size: 0.5em;
+        margin-left: 17%;
+    }
+}
 /******************************************** Footer ******************************************************/
 .footerText {
     position: absolute;
