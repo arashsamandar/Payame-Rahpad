@@ -280,7 +280,10 @@ h1, h2, h3, h4, h5,
         position: relative;
         float: right;
         font-size: 0.7em;
-        margin-left: 17%;
+        margin-left: 10%;
+    }
+    .hideAtLowSize {
+        display: none;
     }
 }
 @media screen and (max-width: 400px){
