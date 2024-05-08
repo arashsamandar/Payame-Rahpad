@@ -252,26 +252,6 @@ h1, h2, h3, h4, h5,
         /*margin-right: 700px;*/
     }
 }
-@media screen and (max-width: 770px) {
-    .carouselInner {
-        min-height: 300px;
-    }
-    .carousel-inner {
-        min-height: 300px !important;
-    }
-    .col-md-4 {
-        width: 50%;
-    }
-    .col-md-4.lastOne {
-        display: none;
-    }
-    .footerText {
-        position: relative;
-        float: right;
-        font-size: 0.8em;
-        margin-left: 30px;
-    }
-}
 @media screen and (max-width: 500px){
     .carousel-inner {
         min-height: 230px !important;
@@ -291,7 +271,61 @@ h1, h2, h3, h4, h5,
         display: none;
     }
 }
+@media screen and (max-width: 770px) {
+    .carouselInner {
+        min-height: 300px;
+    }
+    .carousel-inner {
+        min-height: 300px !important;
+    }
+    .col-md-4 {
+        width: 50%;
+    }
+    .col-md-4.lastOne {
+        display: none;
+    }
+    .footerText {
+        position: relative;
+        float: right;
+        font-size: 0.8em;
+        margin-left: 30px;
+    }
+    .pageContent_Header {
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+    }
+    .pageContent_InnerDiv {
+        margin-right: 10px !important;
+        margin-left: 10px !important;
+    }
+    .application-image {
+        padding: 20px !important;
+        margin:0 10px !important;
+    }
+}
 /******************************************** Footer ******************************************************/
+.application-image {
+    padding: 20px;
+    margin:0 10px;
+}
+.pageContent_OuterDiv {
+    width: 100%;height: auto;margin: 50px auto;border:#eee solid 1px;border-radius: 5px;
+}
+.pageContent_Header {
+    margin-left:100px;margin-right:50px;padding:10px;border:#eee solid 1px;border-radius: 5px;
+}
+.pageContent_InnerDiv {
+    margin-left:100px;
+    margin-right:50px;
+    margin-bottom:30px;
+    padding:10px;
+    border-radius: 5px;
+    overflow:auto;
+    text-align: justify;
+}
+.application-image {
+    text-align: center; margin: 0 auto;
+}
 .footerText {
     position: absolute;
     left: 36%
