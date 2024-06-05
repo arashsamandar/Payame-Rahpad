@@ -11,17 +11,19 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
-      # FTP Deploy step for the main directory
-      - name: FTP Deploy to public_html
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      # SCP Deploy step for the main directory
+      - name: SCP Deploy to public_html
+        uses: appleboy/scp-action@master
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: public_html/
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "."
+          target: "/public_html/"
+          strip_components: 1
           exclude: |
             public/**
-            .env
+           .env
             public_html/index.php
 
       # FTP Deploy step for the public/js directory
