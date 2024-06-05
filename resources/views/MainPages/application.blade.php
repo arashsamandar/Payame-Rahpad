@@ -6,7 +6,7 @@
 
     <div class="pageContent_OuterDiv">
         <h3 class="pageContent_Header">
-            Application Documentation :
+            Application Documentation
         </h3>
 
         <div class="pageContent_InnerDiv">

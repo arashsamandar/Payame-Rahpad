@@ -6,12 +6,12 @@
 
     <div class="pageContent_OuterDiv">
         <h3 class="pageContent_Header">
-            About Me :
+            About Me
         </h3>
 
         <div class="pageContent_InnerDiv">
-            Hello and Welcome to my personal website :<br>
-            my name is arash i am 35 and i am a freelancer<br>
+            Hello and Welcome to my Personal Website.
+            My name is arash. i am 35 yrs old freelancer<br>
             i started programming when i was 13 and of course after i studied computer hardware ( A+ ).
             i am a self taught programmer and developer though i have worked and made apps for government and i was
             working there for 6 or more years . but i have always learned by myself as unfortunately my family had problem
