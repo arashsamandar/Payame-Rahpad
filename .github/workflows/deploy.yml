@@ -11,6 +11,19 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
+      # FTP Deploy step for the main directory
+      - name: FTP Deploy to public_html
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: public_html/
+          exclude: |
+            public/**
+            .env
+            public_html/index.php
+
       # FTP Deploy step for the public/js directory
       - name: FTP Deploy JS to public_html/js
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
