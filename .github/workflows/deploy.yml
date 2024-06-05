@@ -13,7 +13,7 @@ jobs:
 
       # FTP Deploy step for the main directory
       - name: FTP Deploy to public_html
-        uses: SamKirkland/FTP-Deploy-Action@latest
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
