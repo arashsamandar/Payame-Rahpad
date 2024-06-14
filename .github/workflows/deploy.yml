@@ -13,7 +13,7 @@ jobs:
 
       # FTP Deploy step for the main directory
       - name: FTP Deploy to public_html
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
@@ -23,8 +23,6 @@ jobs:
             /public/**
             .env
             /public_html/index.php
-          protocol: ftps # Specify FTPS explicitly
-          timeout: 120000 # Increase timeout to 120 seconds
 
       # FTP Deploy step for the public/js directory
       - name: FTP Deploy JS to public_html/js
